@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/null">
     <link rel="icon" type="image/png" href="/null">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>Blog</title>
+    <title>友链 - Blog</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -16,7 +16,7 @@
     <meta name="description" content="Computer Science self study blog">
     <meta name="author" content="Si1w">
     <meta name="keywords" content="">
-    
+    <meta property="og:title" content="友链"/>
     <style>
 
 
@@ -350,6 +350,13 @@ header .header__right .dropdown-menus .dropdown-menu {
     
 
     
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
     
     <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
     <noscript>
@@ -411,99 +418,69 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div id="page-main" class="main-content">
         <div class="mg-top">
             
-  <div id="index-banner" class="text-center middle-center">
-    <div class="banner-text">
-        <h3 id="banner-name">
-            Theme Miracle
-        </h3>
-        <p class="slogan">
-          一款简洁的单栏 Hexo 主题
-        </p>
-    </div>
+<article class="page">
+<div id="post-meta-m" style="padding-bottom:0;">
+  <div class="post-meta" id="post-meta">
+    <h3>友链</h3>
+  </div>
 </div>
-
-
-<div class="post-card-center">
-<div class="post-card-main">
-
+<div class="links-page" style="padding-top:10px;" id="links-page">
     
-      <div class="index-card">
-        
-        <article class="index-card-info">
-          <h3 class="index-header">
-            <a href="/2024/06/27/shell/">
-            
-            shell</a>
-          </h3>
-          <p class="index-excerpt">
-              
-              
+    
+      <script>
+        (async () => {
+          var res = await fetch('');
+          var json = await res.json();
+          console.log(json);
+          const Linkscontainer = document.getElementById('links-page');
+          json.forEach(item => {
+            const element = document.createElement('div');
+            element.className = "links-card";
+
+            element.innerHTML = `
+        <a href="${item.link}" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+              <div class="link-avatar my-auto">
                 
-              
-              ShellWhat is the shell?A command line-interface (CLI) to interact with the computer.
-Shell commandsBasic structure of a command is [command] [flags] [arguments] 
-Common shell commands
-cd - change dire
-          </p>
-          <div class="index-btm post-metas">
-            
-              
-                <time datetime="2024-06-27 00:00" pubdate>
-                  2024-06-27
-                </time>
-              
-            
-            
-          </div>
-        </article>
-      </div>
-    
-  
-    
-      <div class="index-card">
-        
-        <article class="index-card-info">
-          <h3 class="index-header">
-            <a href="/2024/06/26/vim/">
-            
-            Vim基础操作</a>
-          </h3>
-          <p class="index-excerpt">
-              
-              
+                  <img webp-comp class="lazyload-img" data-srcset="${item.image}" srcset="/img/loading.svg" src="${item.image}" alt="${item.title}" />
                 
-              
-              Vim基础操作编辑模式
-正常模式：在文件中四处移动光标进行修改
-插入模式：i 插入文本
-替换模式：R 替换文本
-可视化模式：v 一般选中，V 行选中，&lt;C-v&gt; 块选中
-命令模式：: 用于执行命令
-返回正常模式：&lt;ESC&gt;
-
-命令行模式
-退出（关闭窗口）：:q
-保存（写）：:w
-保存然后退出：:wq
-打开要编辑的文件：:e &#123;文件名&#125;
-显示打开的缓冲区：
-          </p>
-          <div class="index-btm post-metas">
-            
-              
-                <time datetime="2024-06-26 17:55" pubdate>
-                  2024-06-26
-                </time>
-              
-            
-            
+              </div>
+            <div class="link-text">
+              <div class="link-title">${item.title}</div>
+              <div class="link-intro">${item.intro}</div>
+            </div>
           </div>
-        </article>
-      </div>
+        </a>
+            `;
+            Linkscontainer.appendChild(element);
+          });
+          setTimeout(function () {
+  function query(selector) {
+    return Array.from(document.querySelectorAll(selector));
+}
     
-  
+var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) { 
+            var img = entry.target;
+            img.srcset = img.getAttribute('data-srcset');
+            img.className += ' loaded'
+            io.unobserve(img);
+        }
+    });
+});
+    
+query('.lazyload-img').forEach(function (item) {
+    io.observe(item);
+});
+},0)
+        })();
+
+
+      </script>
+    
 </div>
-</div>
+</article>
 
         </div>
         
