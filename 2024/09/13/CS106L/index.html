@@ -1,91 +1,211 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"si1w.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="CS106LBrief Intro to C++ featureDesign Philosophy of C++ Only add features if they solve an actual problem Programmers should be free to choose their own style Compartmentalization is key Allow the pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS106L">
+<meta property="og:url" content="https://si1w.github.io/2024/09/13/CS106L/index.html">
+<meta property="og:site_name" content="Si1w&#39;s Blog">
+<meta property="og:description" content="CS106LBrief Intro to C++ featureDesign Philosophy of C++ Only add features if they solve an actual problem Programmers should be free to choose their own style Compartmentalization is key Allow the pr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-13T13:06:01.000Z">
+<meta property="article:modified_time" content="2024-09-13T18:27:29.576Z">
+<meta property="article:author" content="Si1w">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://si1w.github.io/2024/09/13/CS106L/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://si1w.github.io/2024/09/13/CS106L/","path":"2024/09/13/CS106L/","title":"CS106L"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CS106L | Si1w's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Si1w's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
         
+  
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CS106L"><span class="nav-number">1.</span> <span class="nav-text">CS106L</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Brief-Intro-to-C-feature"><span class="nav-number">2.</span> <span class="nav-text">Brief Intro to C++ feature</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Philosophy-of-C"><span class="nav-number">2.1.</span> <span class="nav-text">Design Philosophy of C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-syntax"><span class="nav-number">2.2.</span> <span class="nav-text">Basic syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-STL"><span class="nav-number">2.3.</span> <span class="nav-text">The STL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Namespaces"><span class="nav-number">2.3.1.</span> <span class="nav-text">Namespaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STL-Naming-Conventions"><span class="nav-number">2.3.2.</span> <span class="nav-text">STL Naming Conventions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fundamental-Types"><span class="nav-number">2.4.</span> <span class="nav-text">Fundamental Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiled-v-s-Interpreted"><span class="nav-number">2.5.</span> <span class="nav-text">Compiled v.s. Interpreted</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamically-typed-interpreted"><span class="nav-number">2.5.1.</span> <span class="nav-text">Dynamically typed, interpreted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Statically-typed-compiled"><span class="nav-number">2.5.2.</span> <span class="nav-text">Statically typed, compiled</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-problem-with-types"><span class="nav-number">2.6.</span> <span class="nav-text">The problem with types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Struct"><span class="nav-number">2.7.</span> <span class="nav-text">Struct</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Initialization-References-Streams"><span class="nav-number">3.</span> <span class="nav-text">Initialization + References, Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization"><span class="nav-number">3.1.</span> <span class="nav-text">Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-initialization-C-11"><span class="nav-number">3.1.1.</span> <span class="nav-text">Uniform initialization (C++11)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structured-Binding"><span class="nav-number">3.1.2.</span> <span class="nav-text">Structured Binding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.2.</span> <span class="nav-text">Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-by-reference"><span class="nav-number">3.2.1.</span> <span class="nav-text">Pass by reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-values-v-s-R-values"><span class="nav-number">3.2.2.</span> <span class="nav-text">L-values v.s. R-values</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Is-int-num-an-l-value"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Is int&amp; num an l-value?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Const"><span class="nav-number">3.2.3.</span> <span class="nav-text">Const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Appendix"><span class="nav-number">3.2.4.</span> <span class="nav-text">Appendix</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Streams"><span class="nav-number">3.3.</span> <span class="nav-text">Streams</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-streams"><span class="nav-number">3.3.1.</span> <span class="nav-text">Output streams</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-File-Streams"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">Output File Streams</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-streams"><span class="nav-number">3.3.2.</span> <span class="nav-text">Input streams</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-File-Streams"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">Input File Streams</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stringstreams"><span class="nav-number">3.3.3.</span> <span class="nav-text">stringstreams</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Containers-Iterators-Pointers"><span class="nav-number">4.</span> <span class="nav-text">Containers, Iterators, Pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">4.1.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-in-the-STL"><span class="nav-number">4.2.</span> <span class="nav-text">Container in the STL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Standardization"><span class="nav-number">4.2.1.</span> <span class="nav-text">Standardization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Containers"><span class="nav-number">4.2.2.</span> <span class="nav-text">Containers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-containers"><span class="nav-number">4.2.3.</span> <span class="nav-text">Types of containers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequence-Containers"><span class="nav-number">4.2.4.</span> <span class="nav-text">Sequence Containers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector-implementation"><span class="nav-number">4.2.4.1.</span> <span class="nav-text">Vector implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequence-Containers-Summary"><span class="nav-number">4.2.4.2.</span> <span class="nav-text">Sequence Containers: Summary</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Associative-Containers"><span class="nav-number">4.2.5.</span> <span class="nav-text">Associative Containers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Map-implementation"><span class="nav-number">4.2.5.1.</span> <span class="nav-text">Map implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unordered-maps-sets"><span class="nav-number">4.2.5.2.</span> <span class="nav-text">Unordered maps&#x2F;sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Aside-Hashing"><span class="nav-number">4.2.5.3.</span> <span class="nav-text">Aside: Hashing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing-a-hash-function"><span class="nav-number">4.2.5.4.</span> <span class="nav-text">Choosing a hash function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choosing-associative-containers"><span class="nav-number">4.2.5.5.</span> <span class="nav-text">Choosing associative containers</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Adaptors"><span class="nav-number">4.3.</span> <span class="nav-text">Container Adaptors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Iterators"><span class="nav-number">4.4.</span> <span class="nav-text">Iterators</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop"><span class="nav-number">4.4.1.</span> <span class="nav-text">Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introducing-Iterators"><span class="nav-number">4.4.2.</span> <span class="nav-text">Introducing Iterators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-the-STL"><span class="nav-number">4.4.3.</span> <span class="nav-text">In the STL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-categories"><span class="nav-number">4.4.4.</span> <span class="nav-text">Iterator categories</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pointers"><span class="nav-number">4.5.</span> <span class="nav-text">Pointers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-and-You"><span class="nav-number">4.5.1.</span> <span class="nav-text">Memory and You</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dereferencing"><span class="nav-number">4.5.2.</span> <span class="nav-text">Dereferencing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recap"><span class="nav-number">4.5.2.1.</span> <span class="nav-text">Recap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-the-object-has-member-variables"><span class="nav-number">4.5.3.</span> <span class="nav-text">If the object has member variables</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Difference"><span class="nav-number">4.5.3.1.</span> <span class="nav-text">Difference</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Classes-Template-Classes-Const"><span class="nav-number">5.</span> <span class="nav-text">Classes, Template Classes, Const</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Classes"><span class="nav-number">5.1.</span> <span class="nav-text">Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-classess"><span class="nav-number">5.1.1.</span> <span class="nav-text">Why classess</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OOP"><span class="nav-number">5.1.2.</span> <span class="nav-text">OOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparing-struct-and-class"><span class="nav-number">5.1.3.</span> <span class="nav-text">Comparing struct and class</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Recall-the-struct"><span class="nav-number">5.1.3.1.</span> <span class="nav-text">Recall the struct</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Header-File-h-v-s-Source-Files-cpp"><span class="nav-number">5.1.4.</span> <span class="nav-text">Header File (.h) v.s. Source Files (.cpp)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Header-File"><span class="nav-number">5.1.4.1.</span> <span class="nav-text">Header File</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Source-File"><span class="nav-number">5.1.4.2.</span> <span class="nav-text">Source File</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class-design"><span class="nav-number">5.1.5.</span> <span class="nav-text">Class design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructor"><span class="nav-number">5.1.6.</span> <span class="nav-text">Constructor</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#some-cool-class-stuff"><span class="nav-number">5.1.6.1.</span> <span class="nav-text">some cool class stuff</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-adapters"><span class="nav-number">5.2.</span> <span class="nav-text">Container adapters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inheritance"><span class="nav-number">5.3.</span> <span class="nav-text">Inheritance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Subclass-v-s-Container-Adapter"><span class="nav-number">5.3.1.</span> <span class="nav-text">Subclass v.s. Container Adapter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Template-classes"><span class="nav-number">5.4.</span> <span class="nav-text">Template classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Const-correctness"><span class="nav-number">5.5.</span> <span class="nav-text">Const correctness</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IntArray"><span class="nav-number">5.5.1.</span> <span class="nav-text">IntArray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-slight-but-useful-aside"><span class="nav-number">5.5.2.</span> <span class="nav-text">A slight(but useful) aside</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Template-Functions-Functions-Lambdas"><span class="nav-number">6.</span> <span class="nav-text">Template Functions, Functions, Lambdas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators-Special-Member-Functions"><span class="nav-number">7.</span> <span class="nav-text">Operators, Special Member Functions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Move-Semantics-Type-safety"><span class="nav-number">8.</span> <span class="nav-text">Move Semantics, Type safety</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Si1w</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
 
-
-
-
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet"
-/>
-<link
-    href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css"
-    rel="stylesheet"
-/>
-
-
-<link rel="stylesheet" href="/styles/main.css">
-
+        </div>
+      </div>
+    </div>
 
     
-<link rel="stylesheet" href="/styles/post.css">
+  </aside>
 
 
+    </div>
 
-<title>CS106L - Si1w&#39;s Blog</title>
-
-    <meta name="generator" content="Hexo 7.3.0"></head>
-    <body>
-        <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            
-                
-
-    <li><a href="/posts"><span>Posts</span></a></li>
-    <li><a href="/tags"><span>Tags</span></a></li>
-    <li><a href="/categories"><span>Categories</span></a></li>
-    <li><a href="/archives"><span>Archives</span></a></li>
+    <div class="main-inner post posts-expand">
 
 
-            
-        </ul>
-    </nav>
-</header>
+  
 
-        <main>
-    <header>
-        <h1>
-            
-                CS106L
-            
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://si1w.github.io/2024/09/13/CS106L/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Si1w">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Si1w's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CS106L | Si1w's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CS106L
         </h1>
-        <div>
-            <time>2024-09-13</time>
-            <div class="post-categories">
-                
-                    <span class="category-tree">
-                        
-                            <span class="separator">/</span>
-                            <a href="/categories/Computer-Science/">Computer Science</a>
-                        
-                    </span>
-                
-            </div>
-            <div class="post-tags">
-                
-                    <span class="tag">
-                        <span class="separator">#</span>
-                        <a href="/tags/C/">C++</a>
-                    </span>
-                
-            </div>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-09-13 14:06:01 / 修改时间：19:27:29" itemprop="dateCreated datePublished" datetime="2024-09-13T14:06:01+01:00">2024-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
-    </header>
-    <h1 id="CS106L"><a href="#CS106L" class="headerlink" title="CS106L"></a>CS106L</h1><h1 id="Brief-Intro-to-C-feature"><a href="#Brief-Intro-to-C-feature" class="headerlink" title="Brief Intro to C++ feature"></a>Brief Intro to C++ feature</h1><h2 id="Design-Philosophy-of-C"><a href="#Design-Philosophy-of-C" class="headerlink" title="Design Philosophy of C++"></a>Design Philosophy of C++</h2><ul>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="CS106L"><a href="#CS106L" class="headerlink" title="CS106L"></a>CS106L</h1><h1 id="Brief-Intro-to-C-feature"><a href="#Brief-Intro-to-C-feature" class="headerlink" title="Brief Intro to C++ feature"></a>Brief Intro to C++ feature</h1><h2 id="Design-Philosophy-of-C"><a href="#Design-Philosophy-of-C" class="headerlink" title="Design Philosophy of C++"></a>Design Philosophy of C++</h2><ul>
 <li><font color=orange><strong>Only add features if they solve an actual problem</strong></font></li>
 <li><font color=orange><strong>Programmers should be free to choose their own style</strong></font></li>
 <li>Compartmentalization is key</li>
@@ -692,36 +812,135 @@
 <p>This is a <font color=pink><strong>template declaration</strong></font> and allows us to create template classes</p>
 <p><code>template &lt;typename T, typename U&gt;</code></p>
 <p>This is a <font color=pink><strong>template declaration</strong></font> list which can have various template parameters representing different types</p>
-<p>When doing our implementation for our template classes, we need</p>
+<p>When doing our implementation for our template classes, we need to create <font color=pink>template functions</font></p>
+<p>C++ wants use to specify out template parameters in our namespace because, based on the parameters our class may behave differently</p>
+<p><strong>class</strong> and <strong>type name</strong> are interchangeable in the template declaration list</p>
+<h2 id="Const-correctness"><a href="#Const-correctness" class="headerlink" title="Const correctness"></a>Const correctness</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string <span class="title">stringify</span><span class="params">(<span class="type">const</span> Student&amp; s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s.<span class="built_in">getName</span>() + <span class="string">&quot; is &quot;</span> + std::<span class="built_in">to_string</span>(s.<span class="built_in">getAge</span>()) + <span class="string">&quot; years old. &quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>By passing in <code>s</code> as <code>const</code> we made a promise to not modify s</p>
+</li>
+<li><p>The compiler doesn’t know whether or not <code>getName()</code> and <code>getAge()</code> modify <code>s</code></p>
+</li>
+<li><p>Remember, member functions can access and modify member variables</p>
+</li>
+</ul>
+<p>so we need</p>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    Student(String name, String state, <span class="type">int</span> age);</span><br><span class="line">    <span class="type">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>;</span><br><span class="line">    String <span class="title function_">getName</span><span class="params">()</span> <span class="type">const</span>;</span><br><span class="line">    String <span class="title function_">getState</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> <span class="type">const</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::string <span class="title">Student::getName</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">std::string <span class="title">Student::getAge</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Definition:</strong> Objects that are <code>const</code> can only interact with the const-interface</p>
+<p>The const interface is simply the functions that are const&#x2F;do not modify the object&#x2F;instance of the class</p>
+<h3 id="IntArray"><a href="#IntArray" class="headerlink" title="IntArray"></a>IntArray</h3><figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IntArray</span> &#123;</span></span><br><span class="line">Private:</span><br><span class="line">    <span class="type">int</span>* _array</span><br><span class="line">    <span class="type">size_t</span> _size</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Public:</span><br><span class="line">    IntArray(<span class="type">size_t</span> size);</span><br><span class="line">    ~IntArray();</span><br><span class="line">    <span class="type">int</span>&amp; <span class="title function_">at</span><span class="params">(<span class="type">size_t</span> index)</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">size</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">IntArray::<span class="built_in">IntArray</span>(<span class="type">size_t</span> size) : _size(size), _array(<span class="keyword">new</span> <span class="type">int</span>[size]);</span><br><span class="line"></span><br><span class="line">IntArray::~<span class="built_in">IntArray</span>() &#123;</span><br><span class="line">    <span class="keyword">delete</span> [] _array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span>&amp; <span class="title">at</span><span class="params">(<span class="type">size_t</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _array[index];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// const onjects must use the const interface</span></span><br><span class="line"><span class="comment">// Our .at() function is not const</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// so we have to write</span></span><br><span class="line"><span class="function"><span class="type">int</span>&amp; <span class="title">findItem</span><span class="params">(<span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; elem: arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (elem == value) <span class="keyword">return</span> elem;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;value not found&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; <span class="built_in">findItem</span>(<span class="type">int</span> value) <span class="type">const</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; elem: arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (elem == value) <span class="keyword">return</span> elem;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">out_of_range</span>(<span class="string">&quot;value not found&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;IntArray.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">printElement</span><span class="params">(<span class="type">const</span> IntArray&amp; arr, <span class="type">size_t</span> index)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; arr.<span class="built_in">at</span>(index) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    IntArray arr = <span class="built_in">IntArray</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="type">int</span>&amp; secondVal = arr.<span class="built_in">at</span>(<span class="number">1</span>);</span><br><span class="line">    secondVal = <span class="number">19</span>;</span><br><span class="line">    <span class="built_in">printElement</span>(arr, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-slight-but-useful-aside"><a href="#A-slight-but-useful-aside" class="headerlink" title="A slight(but useful) aside"></a>A slight(but useful) aside</h3><p><strong>Casting:</strong> The process of converting types, there are many ways to do this</p>
+<p><strong>const_cast:</strong></p>
+<ul>
+<li><p><code>const_cast&lt;target-type&gt;</code></p>
+</li>
+<li><p>We can use <code>const_cast</code> to cast away <code>const</code>-ness</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">const</span> <span class="type">int</span>&amp; <span class="title">findItem</span><span class="params">(<span class="type">int</span> value)</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;IntArray&amp;&gt;(*<span class="keyword">this</span>).<span class="built_in">findItem</span>(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>Cast so that is is pointing to a non-const object</p>
+</li>
+<li><p>Call the non-const version of the function</p>
+</li>
+<li><p>Then cast the non-const return from the function call to a const version</p>
+</li>
+</ol>
 <h1 id="Template-Functions-Functions-Lambdas"><a href="#Template-Functions-Functions-Lambdas" class="headerlink" title="Template Functions, Functions, Lambdas"></a>Template Functions, Functions, Lambdas</h1><h1 id="Operators-Special-Member-Functions"><a href="#Operators-Special-Member-Functions" class="headerlink" title="Operators, Special Member Functions"></a>Operators, Special Member Functions</h1><h1 id="Move-Semantics-Type-safety"><a href="#Move-Semantics-Type-safety" class="headerlink" title="Move Semantics, Type safety"></a>Move Semantics, Type safety</h1>
-    <div class="gallery">
-        
     </div>
-</main>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
 
         
-    <nav class="pagination">
-        <span class="prev">
-            
-        </span>
-        <span class="next">
-            
-                <a href="/2024/09/13/hello-world/" >
-                    Hello World
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/13/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-angle-left"></i> Hello World
                 </a>
-            
-        </span>
-    </nav>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
 
 
-        <footer>
-    <p>&copy; Si1w</p>
-    <p>
-        Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>,
-        <a target="_blank" rel="noopener" href="https://github.com/sunnybyeon/hexo-theme-dashed">Theme</a> by
-        <a target="_blank" rel="noopener" href="https://github.com/sunnybyeon">sunnybyeon</a>
-    </p>
-</footer>
 
-    </body>
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Si1w</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
 </html>
