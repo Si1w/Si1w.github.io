@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+
+
+
+
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet"
+/>
+<link
+    href="https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css"
+    rel="stylesheet"
+/>
+
+
+<link rel="stylesheet" href="/Si1w/styles/main.css">
+
+
+    
+<link rel="stylesheet" href="/Si1w/styles/post.css">
+
+
+
+<title>CS106L - Si1w&#39;s Blog</title>
+
+    <meta name="generator" content="Hexo 7.3.0"></head>
+    <body>
+        <header>
+    <nav>
+        <ul>
+            <li><a href="/Si1w/">Home</a></li>
+            
+                
+
+    <li><a href="/Si1w/posts"><span>Posts</span></a></li>
+    <li><a href="/Si1w/tags"><span>Tags</span></a></li>
+    <li><a href="/Si1w/categories"><span>Categories</span></a></li>
+    <li><a href="/Si1w/archives"><span>Archives</span></a></li>
+
+
+            
+        </ul>
+    </nav>
+</header>
+
+        <main>
+    <header>
+        <h1>
+            
+                CS106L
+            
+        </h1>
+        <div>
+            <time>2024-09-13</time>
+            <div class="post-categories">
+                
+                    <span class="category-tree">
+                        
+                            <span class="separator">/</span>
+                            <a href="/Si1w/categories/Computer-Science/">Computer Science</a>
+                        
+                    </span>
+                
+            </div>
+            <div class="post-tags">
+                
+                    <span class="tag">
+                        <span class="separator">#</span>
+                        <a href="/Si1w/tags/C/">C++</a>
+                    </span>
+                
+            </div>
+        </div>
+    </header>
+    <h1 id="CS106L"><a href="#CS106L" class="headerlink" title="CS106L"></a>CS106L</h1><h1 id="Brief-Intro-to-C-feature"><a href="#Brief-Intro-to-C-feature" class="headerlink" title="Brief Intro to C++ feature"></a>Brief Intro to C++ feature</h1><h2 id="Design-Philosophy-of-C"><a href="#Design-Philosophy-of-C" class="headerlink" title="Design Philosophy of C++"></a>Design Philosophy of C++</h2><ul>
+<li><font color=orange><strong>Only add features if they solve an actual problem</strong></font></li>
+<li><font color=orange><strong>Programmers should be free to choose their own style</strong></font></li>
+<li>Compartmentalization is key</li>
+<li>Allow the programmer full control if they want it</li>
+<li>Don’t sacrifice performance except as a last resort</li>
+<li>Enforce safety at compile time whenever possible</li>
+<li>Only add features if they solve an actual problem</li>
+<li>Programmers should be free to choose their own style</li>
+<li><font color=orange><strong>Compartmentalization is key</strong></font></li>
+<li><font color=orange><strong>Allow the programmer full control if they want it</strong></font></li>
+<li>Don’t sacrifice performance except as a last resort</li>
+<li>Enforce safety at compile time whenever possible</li>
+<li>Only add features if they solve an actual problem</li>
+<li>Programmers should be free to choose their own style</li>
+<li>Compartmentalization is key</li>
+<li>Allow the programmer full control if they want it</li>
+<li><font color=orange><strong>Don’t sacrifice performance except as a last resort</strong></font></li>
+<li><font color=orange><strong>Enforce safety at compile time whenever possible</strong></font></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Basic-syntax"><a href="#Basic-syntax" class="headerlink" title="Basic syntax"></a>Basic syntax</h2><ul>
+<li>Semicolons at EOL</li>
+<li>Primitive types (ints, doubles etc)</li>
+<li>Basic grammar rules</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// To import additional functionality we use #include</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">Functions declarations need the &#x27;type of the return&#x27;, the &#x27;name of the</span></span><br><span class="line"><span class="comment">function&#x27; and &#x27;any parameters&#x27; (inside the parentheses).</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123; </span><br><span class="line">		<span class="comment">// All lines/statements end in a semicolon</span></span><br><span class="line">		std::cout &lt;&lt; <span class="string">&quot;Hello, world!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="comment">// The code of a function lives inside a block marked by &#x27;&#123;&#125;&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-STL"><a href="#The-STL" class="headerlink" title="The STL"></a>The STL</h2><ul>
+<li>Tons of general functionality</li>
+<li>Built in classes like maps, sets, vectors</li>
+<li>Accessed through the namespace std::</li>
+<li>Extremely powerful and well-maintained</li>
+</ul>
+<h3 id="Namespaces"><a href="#Namespaces" class="headerlink" title="Namespaces"></a>Namespaces</h3><ul>
+<li>MANY things are in the <code>std::</code>namespace<ul>
+<li>e.g. <code>std::cout</code>, <code>std::cin</code>, <code>std::lower_bound</code></li>
+</ul>
+</li>
+<li>A good style will contain <code>std::</code> at the most of time</li>
+</ul>
+<h3 id="STL-Naming-Conventions"><a href="#STL-Naming-Conventions" class="headerlink" title="STL Naming Conventions"></a>STL Naming Conventions</h3><p><strong>STL</strong> &#x3D; Standard Template Library</p>
+<ul>
+<li>It contains TONS of functionality (algorithms, containers, functions, iterators)</li>
+</ul>
+<p><code>STD::</code> &#x3D; the STL namespace</p>
+<p>So to access elements from the <strong>STL</strong> use <code>std::</code> !</p>
+<h2 id="Fundamental-Types"><a href="#Fundamental-Types" class="headerlink" title="Fundamental Types"></a>Fundamental Types</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> val = <span class="number">5</span>; <span class="comment">// 32 bits (usually)</span></span><br><span class="line"><span class="type">char</span> ch = <span class="string">&#x27;F&#x27;</span>; <span class="comment">// 8 bits (usually)</span></span><br><span class="line"><span class="type">float</span> decimalVal1 = <span class="number">5.0</span>; <span class="comment">// 32 bits (usually)</span></span><br><span class="line"><span class="type">double</span> decimalVal2 = <span class="number">5.0</span>; <span class="comment">// 64 bits (usually)</span></span><br><span class="line"><span class="type">bool</span> bVal = <span class="literal">true</span>; <span class="comment">// 1 bits</span></span><br><span class="line">std::string str = <span class="string">&quot;Haven&quot;</span>;</span><br><span class="line"></span><br><span class="line">std::string a = “test”; </span><br><span class="line"><span class="type">double</span> b = <span class="number">3.2</span> * <span class="number">5</span> - <span class="number">1</span>; </span><br><span class="line"><span class="type">int</span> c = <span class="number">5</span> / <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">d</span><span class="params">(<span class="type">int</span> foo)</span> </span>&#123; <span class="keyword">return</span> foo / <span class="number">2</span>; &#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">e</span><span class="params">(<span class="type">double</span> foo)</span> </span>&#123; <span class="keyword">return</span> foo / <span class="number">2</span>; &#125; </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">double</span> foo)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">int</span>(foo / <span class="number">2</span>); &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">g</span><span class="params">(<span class="type">double</span> c)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; c &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here, </p>
+<p><strong>C++ is a statically typed language!</strong></p>
+<p><strong>Statically typed:</strong> everything with a name (variables, functions, etc) is given a type before runtime.</p>
+<p>A language like Python is <strong>dynamically typed:</strong> everything with a name (variables, functions, etc) is given a type at runtime based on the thing’s <strong>current value</strong></p>
+<h2 id="Compiled-v-s-Interpreted"><a href="#Compiled-v-s-Interpreted" class="headerlink" title="Compiled v.s. Interpreted"></a>Compiled v.s. Interpreted</h2><p>Spot the difference: When is <strong>source code translated</strong>?</p>
+<ul>
+<li><strong>Source code:</strong> Original code, usually typed by a human into a computer (like C++ or Python)</li>
+<li><strong>Translated:</strong> Converting source code into something a computer can understand (i.e. machine code)</li>
+</ul>
+<h3 id="Dynamically-typed-interpreted"><a href="#Dynamically-typed-interpreted" class="headerlink" title="Dynamically typed, interpreted"></a>Dynamically typed, interpreted</h3><ul>
+<li>Types are checked on the fly, during the execution, line by lien</li>
+<li>Example: Python</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span></span><br><span class="line">b = <span class="string">&quot;test&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">c</span>):</span><br><span class="line">    <span class="comment"># do something</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Statically-typed-compiled"><a href="#Statically-typed-compiled" class="headerlink" title="Statically typed, compiled"></a>Statically typed, compiled</h3><ul>
+<li>Types before program runs during compilation</li>
+<li>Example: C++</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">3</span>;</span><br><span class="line">std::string b = <span class="string">&quot;test&quot;</span>;</span><br><span class="line"><span class="function"><span class="type">char</span> <span class="title">func</span><span class="params">(std::string c)</span> </span>&#123; </span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="The-problem-with-types"><a href="#The-problem-with-types" class="headerlink" title="The problem with types"></a>The problem with types</h2><p>Strongly and statically typed languages are great, but there are a few downsides:</p>
+<ul>
+<li><font color=skyblue>it can be a pain to know what the type of a variable is</font><ul>
+<li><u>auto:</u> a keyword used in lieu of type when declaring a variable that tells the compiler to <strong>deduce the type</strong>.</li>
+</ul>
+</li>
+<li>any given function can only have exactly one return type</li>
+<li>C++ primitives (and even the types in the STL) can be limited</li>
+</ul>
+<h2 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h2><p>A <strong>struct</strong> is a group of nammed variables, each with their own type, that allows programmers to <strong>bundle different types</strong> together!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    std::string name; <span class="comment">// these are called fields</span></span><br><span class="line">    std::string state; <span class="comment">// separate these by semicolons</span></span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Student s;</span><br><span class="line">s.name = <span class="string">&quot;Haven&quot;</span>;</span><br><span class="line">s.state = <span class="string">&quot;AR&quot;</span>;</span><br><span class="line">s.age = <span class="number">22</span>; <span class="comment">//use . to access fields</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printStudentInfo</span><span class="params">(Student s)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; s.name &lt;&lt; <span class="string">&quot; from &quot;</span> &lt;&lt; s.state; </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot; (&quot;</span> &lt;&lt; s.age <span class="string">&quot;)&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">randomStudentFrom</span><span class="params">(std::string state)</span> </span>&#123;</span><br><span class="line">    Student s;</span><br><span class="line">    s.name = <span class="string">&quot;Haven&quot;</span>; <span class="comment">// random = always Haven</span></span><br><span class="line">    s.state = state;</span><br><span class="line">    s.age = std::<span class="built_in">randint</span>(<span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student foundStudent = <span class="built_in">randomStudentFrom</span>(<span class="string">&quot;AR&quot;</span>);</span><br><span class="line">cout &lt;&lt; foundStudent.name &lt;&lt; endl; <span class="comment">//Haven</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Abbreviate</span></span><br><span class="line">Student s</span><br><span class="line">s.name = <span class="string">&quot;Haven&quot;</span>;</span><br><span class="line">s.state = <span class="string">&quot;AR&quot;</span>;</span><br><span class="line">s.age = <span class="number">22</span>;</span><br><span class="line"></span><br><span class="line">Student s = &#123;<span class="string">&quot;Haven&quot;</span>, <span class="string">&quot;AR&quot;</span>, <span class="number">22</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><u><strong>std::pair:</strong></u> An STL built-in struct with <strong>two fields</strong> of <strong>any type</strong></p>
+<ul>
+<li><strong>std::pair</strong> is a template: You specify the types of the fields inside &lt;&gt; for each pair object you make</li>
+<li>The fields in <strong>std::pair</strong> are named <strong>first</strong> and <strong>second</strong></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">std::pair&lt;<span class="type">int</span>, string&gt; numSuffix = &#123;<span class="number">1</span>, <span class="string">&quot;st&quot;</span>&#125;;</span><br><span class="line">cout &lt;&lt; numSuffix.first &lt;&lt; numSuffix.second; <span class="comment">// print 1st</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Basically the struct looks like this</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">pair</span> &#123;</span><br><span class="line">    fill_in_type first;</span><br><span class="line">    fill_in_type second;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">std::pair&lt;<span class="type">bool</span>, Student&gt; <span class="title">lookupStudent</span><span class="params">(string name)</span> </span>&#123;</span><br><span class="line">    Student blank;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">notFound</span>(name)) <span class="keyword">return</span> std::<span class="built_in">make_pair</span>(<span class="literal">false</span>, blank);</span><br><span class="line">    Student result = <span class="built_in">getStudentWithName</span>(name);</span><br><span class="line">    <span class="keyword">return</span> std::<span class="built_in">make_pair</span>(<span class="literal">true</span>, result);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">auto</span> output = <span class="built_in">lookupStudent</span>(<span class="string">&quot;Julie&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Initialization-References-Streams"><a href="#Initialization-References-Streams" class="headerlink" title="Initialization + References, Streams"></a>Initialization + References, Streams</h1><h2 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">criticalSystemValue</span><span class="params">(<span class="number">42.5</span>)</span></span>; <span class="comment">// Direct initialization with a floating-point value</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Critical system value: &quot;</span> &lt;&lt; criticalSystemValue &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><u>C++ doesn’t care in this case</u>, it doesn’t type check with direct initialization</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// NOTICE: brackets</span></span><br><span class="line">    <span class="type">int</span> numOne&#123;<span class="number">12</span>&#125;;</span><br><span class="line">    <span class="type">int</span> numOne&#123;<span class="number">12</span>&#125;;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;numOne is&quot;</span> &lt;&lt; numOne &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;numTwo is&quot;</span> &lt;&lt; numTwo &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>With uniform initialization C++ <u><strong>does</strong></u> care about types</p>
+<h3 id="Uniform-initialization-C-11"><a href="#Uniform-initialization-C-11" class="headerlink" title="Uniform initialization (C++11)"></a>Uniform initialization (C++11)</h3><p>Uniform initialization is awesome because:</p>
+<ol>
+<li><p>It’s <font color=yellow><strong>safe!</strong></font> It doesn’t allow for narrowing conversions-which can lead to unexpected behaviour(or critical system failure)</p>
+</li>
+<li><p>It’s <font color=yellow><strong>ubiquitous</strong></font> it works for all types like vectors, map, and custom classes, among other things!</p>
+</li>
+</ol>
+<h3 id="Structured-Binding"><a href="#Structured-Binding" class="headerlink" title="Structured Binding"></a>Structured Binding</h3><ul>
+<li><p>A useful way to initialize some variables from data structures with fixed sizes at compile time</p>
+</li>
+<li><p>Ability to access multiple values returned by a function</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;tuple&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">std::tuple&lt;std::string, std::string, std::string&gt; <span class="title">getClassInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::string className = <span class="string">&quot;CS106L&quot;</span>;</span><br><span class="line">    std::string buildingName = <span class="string">&quot;Turing Auditorium&quot;</span>;</span><br><span class="line">    std::string language = <span class="string">&quot;C++&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;className, buildingName, language&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> [className, buildingName, language] = <span class="built_in">getClassInfo</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Come to &quot;</span> &lt;&lt; buildingName &lt;&lt; <span class="string">&quot; and join us for&quot;</span> &lt;&lt; className &lt;&lt; <span class="string">&quot; to learn&quot;</span> &lt;&lt; language &lt;&lt; <span class="string">&quot;!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>“Declares a name variable as a reference”</p>
+<p>tldr: a reference is an alias to an already-existing thing</p>
+<p>Use an ampersand(&amp;)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">5</span></span><br><span class="line"><span class="type">int</span>&amp; ref = num;</span><br><span class="line">ref = <span class="number">10</span> <span class="comment">// Assigning a new value through the reference</span></span><br><span class="line">std::cout &lt;&lt; num &lt;&lt; std:endl; <span class="comment">// Output 10</span></span><br></pre></td></tr></table></figure>
+<p><font color=yellow>ref</font> is a variable of type int&amp;, that is an <u>alias</u> to num</p>
+<h3 id="Pass-by-reference"><a href="#Pass-by-reference" class="headerlink" title="Pass by reference"></a>Pass by reference</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">squareN</span><span class="params">(<span class="type">int</span>&amp; n)</span> </span>&#123;</span><br><span class="line">    n = std::<span class="built_in">pow</span>(n, <span class="number">2</span>); <span class="comment">// Calculates n to the power of 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">squareN</span>(num);</span><br><span class="line">    std::cout &lt;&lt; num &lt;&lt; std::endl; <span class="comment">// Output 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Passing in a variable by <u><em>reference</em></u> into a function just means “<font color=red>Hey take in the actual piece of memory, don’t make a copy!</font>“</p>
+<p>Passing in a variable by <u><em>value</em></u> into a function just means “<font color=red>Hey make a copy, don’t take in the actual variable!</font>“</p>
+<p><strong>A reference</strong> refers to the same memory as its associated variable!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">shift</span><span class="params">(std::vector&lt;std::pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [num1, num2]: nums) &#123;</span><br><span class="line">        num1++;</span><br><span class="line">        num2++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="L-values-v-s-R-values"><a href="#L-values-v-s-R-values" class="headerlink" title="L-values v.s. R-values"></a>L-values v.s. R-values</h3><p>An <font color = blue>l-value</font> can be to the left <u><strong>or</strong></u> the right of an equal sign!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">344</span></span><br><span class="line"><span class="type">int</span> y = x <span class="comment">// x is a l-value</span></span><br></pre></td></tr></table></figure>
+<p>An <font color = red>r-value</font> can be <u><em><strong>only</strong></em></u> to the right of an equal sign!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> y = <span class="number">21</span> <span class="comment">// 21 is a r-value</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Is-int-num-an-l-value"><a href="#Is-int-num-an-l-value" class="headerlink" title="Is int&amp; num an l-value?"></a>Is <code>int&amp; num</code> an l-value?</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">squareN</span><span class="params">(<span class="type">int</span>&amp; n)</span> </span>&#123;</span><br><span class="line">    n = std::<span class="built_in">pow</span>(n, <span class="number">2</span>); <span class="comment">// Calculates n to the power of 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>num</code> is an l-value</p>
+<ol>
+<li><p>Remember what we said about r-values are temporary. Notice that <code>num</code> is being passed in by reference!</p>
+</li>
+<li><p>We <u><em><strong>cannot</strong></em></u> pass in an r-value by reference because they are temporary!</p>
+</li>
+</ol>
+<h3 id="Const"><a href="#Const" class="headerlink" title="Const"></a>Const</h3><p>A qualifier for objects that declares they cannot be modified</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; vec&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;; <span class="comment">// a normal vector</span></span><br><span class="line">    <span class="type">const</span> std::vector&lt;<span class="type">int</span>&gt; const_vec&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;; <span class="comment">// a const vector</span></span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt;&amp; ref_vec&#123; vec &#125;; <span class="comment">// a reference to &#x27;vec&#x27;</span></span><br><span class="line">    <span class="type">const</span> std::vector&lt;<span class="type">int</span>&gt;&amp; const_ref&#123; vec &#125;; <span class="comment">// a const reference</span></span><br><span class="line"></span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">3</span>); <span class="comment">// this is OKAY!</span></span><br><span class="line">    const_vec.<span class="built_in">push_back</span>(<span class="number">3</span>); <span class="comment">// NO this is const</span></span><br><span class="line">    ref_vec.<span class="built_in">push_back</span>(<span class="number">3</span>); <span class="comment">// this is ok, just a reference</span></span><br><span class="line">    const_ref.<span class="built_in">push_back</span>(<span class="number">3</span>); <span class="comment">// this is const, compile error</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Also, we <u><strong>cannot</strong></u> declare a non-const reference to a const variable</p>
+<h3 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h3><ul>
+<li><p>C++ is a compiled language</p>
+</li>
+<li><p>There are computer programs called <u>compile</u></p>
+</li>
+<li><p>A few popular compilers include clang and g++</p>
+</li>
+<li><p><u><em><strong>Here is how to compile a program using g++</strong></em></u></p>
+<ul>
+<li><p><strong>g++:</strong> This is the compiler command</p>
+</li>
+<li><p><strong>-std&#x3D;c++:</strong> This specifies the c++ version you want to compile in</p>
+</li>
+<li><p><strong>main.cpp:</strong> This is the source file</p>
+</li>
+<li><p><strong>-o:</strong> This means that you’re going to give a specific name to your executable</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h2><p>A stream is a general <u><strong>input&#x2F;output(IO)</strong></u> <font color=yellow>abstraction</font> for C++</p>
+<p>Abstractions often provide a consistent <u><em><strong>interface</strong></em></u>, and in the case of <font color=orange>streams</font> the interface is for <u>reading</u> and <u>writing</u> data</p>
+<p><code>cout</code> and <code>cin</code> are known as the standard <code>iostream</code></p>
+<ul>
+<li><code>cerr</code> and <code>clog</code></li>
+</ul>
+<p><code>cerr</code>: used to ouput errors (unbuffered)</p>
+<p><code>clog</code>: used for non-critical event logging (buffered)</p>
+<p>Streams allow for a <strong>universal</strong> way of <strong>dealing with external data</strong></p>
+<h3 id="Output-streams"><a href="#Output-streams" class="headerlink" title="Output streams"></a>Output streams</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;Hello, World&quot;</span> &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+
+<p><code>std::cout</code> The stream is an <font color=blue>instance</font> of <code>std::ostream</code> which represents the standard output stream!</p>
+<ul>
+<li><p>a way to write data to a destination</p>
+<ul>
+<li>Are inherited from <code>std::ostream</code></li>
+<li>ex. writing out something to the console(<code>std::cout</code>)</li>
+<li>primary operator: <code>&lt;&lt;</code>(called the insertion operator)</li>
+</ul>
+</li>
+</ul>
+<p>Character in output streams are stored in an intermediary buffer before being flushed to the destination</p>
+<p><code>std::cout</code> stream is <strong>line-buffered</strong></p>
+<p>contents in buffer not shown on external source until an explicit flush occurs</p>
+<p><code>std::endl</code> tells the cout stream to end the line, <u><strong>also</strong></u> tells the stream to <font color=purple>flush</font></p>
+<p>When a stream is flushed <strong>the intermediate buffer is cleared!</strong></p>
+<h4 id="Output-File-Streams"><a href="#Output-File-Streams" class="headerlink" title="Output File Streams"></a>Output File Streams</h4><ul>
+<li><p>Output file streams have a type: <code>std::ofstream</code></p>
+</li>
+<li><p>a way to write data to a file</p>
+<ul>
+<li><p>use the <code>&lt;&lt;</code> insertion operator to <u><em><strong>send</strong></em></u> to the file</p>
+</li>
+<li><p>methods:</p>
+<ul>
+<li><p><code>is_open()</code></p>
+</li>
+<li><p><code>open()</code></p>
+</li>
+<li><p><code>close()</code></p>
+</li>
+<li><p><code>fail()</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// associating file on construction</span></span><br><span class="line">    <span class="function">std::ofstream <span class="title">ofs</span><span class="params">(<span class="string">&quot;hello.txt&quot;</span>)</span></span></span><br><span class="line"><span class="function">    <span class="title">if</span> <span class="params">(ofs.is_open())</span> </span>&#123;</span><br><span class="line">        ofs &lt;&lt; <span class="string">&quot;Hello CS106L&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ofs.<span class="built_in">close</span>();</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;this will not get written&quot;</span>;</span><br><span class="line"></span><br><span class="line">    ofs.<span class="built_in">open</span>(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;this will though! It&#x27;s open again&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Input-streams"><a href="#Input-streams" class="headerlink" title="Input streams"></a>Input streams</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">verifyPi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> pi;</span><br><span class="line">    std::cin &gt;&gt; pi;</span><br><span class="line">    <span class="comment">// verify the value of pi!</span></span><br><span class="line">    std::cout &lt;&lt; pi/<span class="number">2</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>std::cin</code> stream is an <font color=blue>instance</font> of <code>std::istream</code> which represents the standard input stream</p>
+<ul>
+<li><p>a way to read data from a source</p>
+<ul>
+<li>Are inherited from <code>std::istream</code></li>
+<li>ex. reading in something from the console(<code>std::cin</code>)</li>
+<li>primary operator: <code>&gt;&gt;</code>(called the extraction operator)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> pi;</span><br><span class="line">    <span class="type">double</span> tao; </span><br><span class="line">    std::string name;</span><br><span class="line">    std::cin &gt;&gt; pi;</span><br><span class="line">    std::<span class="built_in">getline</span>(std::cin, name);</span><br><span class="line">    std::<span class="built_in">getline</span>(std::cin, name);</span><br><span class="line">    std::cin &gt;&gt; tao;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;my name is: &quot;</span> &lt;&lt; name &lt;&lt; <span class="string">&quot; tao is: &quot;</span> &lt;&lt; tao &lt;&lt; <span class="string">&quot; pi is: &quot;</span> &lt;&lt; pi &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>cin</code>: 3.14\nSteven Wu\n6.28\n</p>
+<p>Hint: You actually <u><em><strong>shouldn’t</strong></em></u> use <code>getline()</code> and <code>std::cin</code> together because of the difference in how they parse data</p>
+<h4 id="Input-File-Streams"><a href="#Input-File-Streams" class="headerlink" title="Input File Streams"></a>Input File Streams</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">intputFileStreamExample</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::ifstream <span class="title">ifs</span><span class="params">(<span class="string">&quot;append.txt&quot;</span>)</span></span></span><br><span class="line"><span class="function">    <span class="title">if</span> <span class="params">(ifs.is_open())</span> </span>&#123;</span><br><span class="line">        std::string line;</span><br><span class="line">        std::<span class="built_in">getline</span>(ifs, line);</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Read from the file: &quot;</span> &lt;&lt; line &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">        std::string lineTwo;</span><br><span class="line">        std::<span class="built_in">getline</span>(ifs, lineTwo);</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Read from the file &quot;</span> &lt;&lt; lineTwo &lt;&lt; <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Input and output streams on the same source&#x2F;destination type are complimentary each other!</p>
+<h3 id="stringstreams"><a href="#stringstreams" class="headerlink" title="stringstreams"></a>stringstreams</h3><p><code>std::stream</code> is a way to treat strings as streams, which is useful for use-cases that deals with mixing data type</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// partial Bjarne Quote</span></span><br><span class="line">    std::string initial_quote = <span class="string">&quot;Bjarne Stroustrup C makes it easy to shoot yourself in the foot&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create a stringstream</span></span><br><span class="line">    <span class="function">std::stringstream <span class="title">ss</span><span class="params">(initial_quote)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// data destinations</span></span><br><span class="line">    std::string first;</span><br><span class="line">    std::string last;</span><br><span class="line">    std::string language, extracted_quote;</span><br><span class="line"></span><br><span class="line">    ss &gt;&gt; first &gt;&gt; last &gt;&gt; language &gt;&gt; extracted_quote;</span><br><span class="line">    std::<span class="built_in">getline</span>(ss, extracted_quote);</span><br><span class="line">    std::cout &lt;&lt; first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; last &lt;&lt; <span class="string">&quot; said this: &quot;</span> &lt;&lt; language &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; extracted_quote &lt;&lt; std:endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>First: Bjarne</p>
+<p>Last: Stoustrup</p>
+<p>Language: C</p>
+<p>extracted_quote: makes it easy to shoot yourself in the foot</p>
+<ul>
+<li><p><code>getline()</code> reads an input stream, <code>is</code>, up until the <code>delim</code> char and stores it in some buffer, <code>str</code></p>
+</li>
+<li><p>The <code>delim</code> char is by default <code>&#39;\n&#39;</code></p>
+</li>
+<li><p><code>getline()</code> <font color=red><em><strong>consumes</strong></em></font> the delim character!</p>
+</li>
+</ul>
+<h1 id="Containers-Iterators-Pointers"><a href="#Containers-Iterators-Pointers" class="headerlink" title="Containers, Iterators, Pointers"></a>Containers, Iterators, Pointers</h1><h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><p><strong>Container:</strong> An object that allows us to collect other objects together and interact with them in some way</p>
+<ul>
+<li><p><strong>Organization:</strong> Related data can be packaged together</p>
+</li>
+<li><p><strong>Standardization:</strong> Common features are expected and implemented</p>
+</li>
+<li><p><strong>Abstraction:</strong> Complex ideas made easier to utilize by clients</p>
+</li>
+</ul>
+<h2 id="Container-in-the-STL"><a href="#Container-in-the-STL" class="headerlink" title="Container in the STL"></a>Container in the STL</h2><h3 id="Standardization"><a href="#Standardization" class="headerlink" title="Standardization"></a>Standardization</h3><p>Typically, container export some standard, basic functionality.</p>
+<ul>
+<li><p>Allow you to store multiple objects </p>
+</li>
+<li><p>Allow access to the collection through some way</p>
+<ul>
+<li>Maybe allow iteration through all of the objects</li>
+</ul>
+</li>
+<li><p>May allow editing&#x2F;deletion</p>
+</li>
+</ul>
+<h3 id="Containers"><a href="#Containers" class="headerlink" title="Containers"></a>Containers</h3><ul>
+<li><p>An <strong>array</strong> is the primitive form of a vector</p>
+<ul>
+<li>Fixed size in a strict sequence</li>
+</ul>
+</li>
+<li><p>A <strong>deque</strong> is a <strong>d</strong>ouble <strong>e</strong>nded <strong>que</strong>ue</p>
+</li>
+<li><p>A <strong>list</strong> is a doubly linked list</p>
+<ul>
+<li>Can loop through in either direction</li>
+</ul>
+</li>
+</ul>
+<h3 id="Types-of-containers"><a href="#Types-of-containers" class="headerlink" title="Types of containers"></a>Types of containers</h3><p>Sequence:</p>
+<ul>
+<li><p>Containers that can be accessed sequentially</p>
+</li>
+<li><p>Anything with an inherent order goes here</p>
+</li>
+</ul>
+<p>Associative:</p>
+<ul>
+<li><p>Containers that don’t necessarily have a sequential order</p>
+</li>
+<li><p>More easily searched</p>
+</li>
+<li><p>Maps and sets go here</p>
+</li>
+</ul>
+<p><strong>NEW in C++23:</strong> <code>flat_map</code> and <code>flat_set</code> are the container adaptors of sequence containers that are faster than the default in most use cases</p>
+<h3 id="Sequence-Containers"><a href="#Sequence-Containers" class="headerlink" title="Sequence Containers"></a>Sequence Containers</h3><h4 id="Vector-implementation"><a href="#Vector-implementation" class="headerlink" title="Vector implementation"></a>Vector implementation</h4><p>At a high level, a vector is an <strong>ordered</strong> collection of elements of the <strong>same type</strong> that can <font color=orange>grow and shrink</font> in size</p>
+<ul>
+<li><p><strong>_size</strong> &#x3D; number of elements in the vector</p>
+</li>
+<li><p><strong>_capacity</strong> &#x3D; space allocated for elements</p>
+</li>
+</ul>
+<h4 id="Sequence-Containers-Summary"><a href="#Sequence-Containers-Summary" class="headerlink" title="Sequence Containers: Summary"></a>Sequence Containers: Summary</h4><ul>
+<li><p>Sequence containers are for when you need to enforce some order on your information</p>
+</li>
+<li><p>Can usually use an <code>std::vector</code> for most anything</p>
+</li>
+<li><p>If you need particularly fast inserts in the front, consider an <code>std::deque</code></p>
+</li>
+<li><p>For joining&#x2F;working with multiple lists, consider an <code>std::list</code>(very rarely)</p>
+</li>
+</ul>
+<h3 id="Associative-Containers"><a href="#Associative-Containers" class="headerlink" title="Associative Containers"></a>Associative Containers</h3><h4 id="Map-implementation"><a href="#Map-implementation" class="headerlink" title="Map implementation"></a>Map implementation</h4><p>Maps are implemented with pairs(<code>std::pair&lt;const key, value&gt;</code>)</p>
+<ul>
+<li><p>Note the <code>const</code> Keys must be immutable</p>
+</li>
+<li><p>Index into the map (<code>myMap[key]</code>) searches through the underlying collection of pairs first attribute for the key and will return its second attribute</p>
+</li>
+</ul>
+<h4 id="Unordered-maps-sets"><a href="#Unordered-maps-sets" class="headerlink" title="Unordered maps&#x2F;sets"></a>Unordered maps&#x2F;sets</h4><ul>
+<li><p><strong>Ordered</strong> maps&#x2F;sets require a <strong>comparison operator</strong> to be defined</p>
+</li>
+<li><p><strong>Unordered</strong> maps&#x2F;sets require a <strong>hash function</strong> to tbe defined</p>
+</li>
+</ul>
+<p>Unordered maps&#x2F;sets are usually faster than ordered ones!</p>
+<h4 id="Aside-Hashing"><a href="#Aside-Hashing" class="headerlink" title="Aside: Hashing"></a>Aside: Hashing</h4><p>Hash functions essentially provides a mapping from some complex object to a number</p>
+<ul>
+<li>The act of calculating one such mapping is knonwn as hashing</li>
+</ul>
+<p>We can hash most anything if you can figure out a good hash function</p>
+<ul>
+<li><p>Strings</p>
+</li>
+<li><p>Structs</p>
+</li>
+<li><p>Objects</p>
+</li>
+<li><p>Even other numbers</p>
+</li>
+</ul>
+<h4 id="Choosing-a-hash-function"><a href="#Choosing-a-hash-function" class="headerlink" title="Choosing a hash function"></a>Choosing a hash function</h4><ul>
+<li><p>Be fast to compute</p>
+</li>
+<li><p>Always map the same input to the same output</p>
+</li>
+<li><p>Avoid collisions wherever possible</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hashFn1</span>(string x) = x.<span class="built_in">size</span>() <span class="comment">// BAD! Collisiions!</span></span><br><span class="line"><span class="built_in">hashFn2</span>(<span class="type">int</span> x) = std::<span class="built_in">rand</span>() + x / <span class="number">10</span> <span class="comment">// BAD! Random!</span></span><br><span class="line"><span class="built_in">hashFn3</span>(string x) = x % <span class="number">5</span> <span class="comment">// GOOD!</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Choosing-associative-containers"><a href="#Choosing-associative-containers" class="headerlink" title="Choosing associative containers"></a>Choosing associative containers</h4><ul>
+<li><p>Unordered container are <strong>faster</strong>, but can be difficult to get to work with nested containers&#x2F;collections</p>
+</li>
+<li><p>If using <strong>complicated data types</strong>&#x2F;unfamiliar with has functions, use an ordered container</p>
+</li>
+</ul>
+<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><p>Container adaptors are “wrappers” to existing containers</p>
+<ul>
+<li>Wrappers <strong>modify the interface</strong> to sequence containers and change what the client is allowed to do&#x2F;how they can interact with the container&#96;</li>
+</ul>
+<p><strong>queue</strong>s are implemented as <em><strong>containers adaptors</strong></em>, which are classes that use an encapsulated object of a specific container class as its <em><strong>underlying container</strong></em>, providing a specific set of member functions to access its elements. Elements are <em><strong>pushes</strong></em> into the “<strong>back</strong>“ of the specific container and <em><strong>popped</strong></em> from its “<strong>front</strong>“</p>
+<ul>
+<li><p><code>std::stack</code> Last in, First Out</p>
+</li>
+<li><p><code>std::queue</code> First in, First Out</p>
+</li>
+</ul>
+<h2 id="Iterators"><a href="#Iterators" class="headerlink" title="Iterators"></a>Iterators</h2><h3 id="Loop"><a href="#Loop" class="headerlink" title="Loop"></a>Loop</h3><p><code>for (initialization; termination condition; increment) &#123;&#125;</code></p>
+<h3 id="Introducing-Iterators"><a href="#Introducing-Iterators" class="headerlink" title="Introducing Iterators"></a>Introducing Iterators</h3><p>Containers all implement something called an iterator to do this</p>
+<ul>
+<li><p>Iterators let you access <strong>all</strong> data in containers programmatically</p>
+</li>
+<li><p>An iterator has a certain <strong>order</strong>; it “knows” what element will come next</p>
+<ul>
+<li>Not necessarily the same each time you iterate</li>
+</ul>
+</li>
+</ul>
+<p><strong>Think of your container as a file cabinet</strong></p>
+<p>An iterator lets you go through the files one at time</p>
+<ul>
+<li><p>You can see where the front and back of your drawer are.</p>
+</li>
+<li><p>You can move your finger from one to the next, because you kept your place.</p>
+</li>
+<li><p>You can take out any file you’ve your hand on, and read&#x2F;write whatever you’d like in it</p>
+</li>
+<li><p>You can compare the relative location of any two files just by looking at where they are in the cabinet</p>
+</li>
+</ul>
+<h3 id="In-the-STL"><a href="#In-the-STL" class="headerlink" title="In the STL"></a>In the STL</h3><p>All containers implement iterators, but they’re not all the same</p>
+<ul>
+<li><p>Each container has its own iterator, which can have different behavior</p>
+</li>
+<li><p>All iterators implement a few shared operations:</p>
+<ul>
+<li><p>Initializing —&gt; <code>iter = s.begin();</code></p>
+</li>
+<li><p>Incrementing —&gt; <code>++iter;</code></p>
+</li>
+<li><p>Dereferencing —&gt; <code>*iter;</code></p>
+</li>
+<li><p>Comparing —&gt; <code>iter != s.end()</code></p>
+</li>
+<li><p>Copying —&gt; <code>new_iter = iter;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Iterator-categories"><a href="#Iterator-categories" class="headerlink" title="Iterator categories"></a>Iterator categories</h3><p><strong>Forward</strong> iterators are the minumum level of functionality for standard containers</p>
+<ul>
+<li><p><strong>Input</strong> iterators can appear on the RHS of an <code>=</code> operator(read only)</p>
+<p>  <code>auto elem = *it;</code></p>
+</li>
+<li><p><strong>Output</strong> iterators can appear on the LHS of an <code>=</code> operator (write only)</p>
+<p>  <code>*elem = value;</code></p>
+</li>
+</ul>
+<p><strong>Bidirectional</strong> iterators can go forward as well as backward</p>
+<ul>
+<li><p><strong><code>--iter;</code></strong></p>
+</li>
+<li><p>Still has the same functionality of forward iterators</p>
+</li>
+</ul>
+<p><strong>Random-access</strong> iterators allow you to directly access values without visiting all elements sequentially</p>
+<ul>
+<li><p><strong><code>iter += 5</code></strong></p>
+</li>
+<li><p>Think of vectors; <code>vec[1]</code> or <code>vec[17]</code></p>
+</li>
+<li><p>Be careful not to go out of bounds!</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Type of Iterator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vector</td>
+<td>Random-Access</td>
+</tr>
+<tr>
+<td>Deque</td>
+<td>Random-Access</td>
+</tr>
+<tr>
+<td>List</td>
+<td>Bidirectional</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>Bidirectional</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>Bidirectional</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>No Iterator</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>No Iterator</td>
+</tr>
+<tr>
+<td>Priority Queue</td>
+<td>No Iterator</td>
+</tr>
+</tbody></table>
+<h2 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h2><p>Iterators are a particular type of pointer</p>
+<ul>
+<li><p>Iterators “point” at particular elements in a <strong>container</strong></p>
+</li>
+<li><p>Pointers can “point” <strong>any objects</strong> in your code</p>
+</li>
+</ul>
+<h3 id="Memory-and-You"><a href="#Memory-and-You" class="headerlink" title="Memory and You"></a>Memory and You</h3><p>Variables created in your code take up space on your computer</p>
+<p>They live in memory at specific addresses</p>
+<p>Pointers reference those memory addresses and not the object themselves</p>
+<h3 id="Dereferencing"><a href="#Dereferencing" class="headerlink" title="Dereferencing"></a>Dereferencing</h3><p>Pointers are marked by the asterisk(*) next to the type of the object they’re pointing at when they’re declared</p>
+<p>The address of a variable can be accessed by using &amp; before its name, same as when passing by reference</p>
+<p>If you want to access the data stored at a pointer’s address, dereference it using an asterisk again</p>
+<p><code>std::cout &gt;&gt; *ptr &gt;&gt; std::endl;</code></p>
+<h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><ul>
+<li><p>a: Represents the value of the variable a.</p>
+</li>
+<li><p>&amp;a: Represents the memory address of the variable a.</p>
+</li>
+<li><p>*p: Represents the value stored at the memory address pointed to by the pointer p.</p>
+</li>
+</ul>
+<h3 id="If-the-object-has-member-variables"><a href="#If-the-object-has-member-variables" class="headerlink" title="If the object has member variables"></a>If the object has member variables</h3><p>If we need to access apointer’s object’s member variables, instead of dereferencing (*ptr) and then accessing (.var), there’s a shorthand</p>
+<p><code>*ptr.var == ptr-&gt;var</code></p>
+<h4 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h4><ul>
+<li><p>Iterators are a type of pointer</p>
+</li>
+<li><p>Iterators have to point to elements in a container, but pointers can point to any object</p>
+<ul>
+<li>All objects stored inside the big container known as <strong>memory</strong></li>
+</ul>
+</li>
+<li><p>Can access memory addresses with <code>&amp;</code> and the data at an address&#x2F;pointer using <code>*</code></p>
+</li>
+</ul>
+<h1 id="Classes-Template-Classes-Const"><a href="#Classes-Template-Classes-Const" class="headerlink" title="Classes, Template Classes, Const"></a>Classes, Template Classes, Const</h1><h2 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h2><h3 id="Why-classess"><a href="#Why-classess" class="headerlink" title="Why classess"></a>Why classess</h3><ul>
+<li><p>One of the premises of the entire C++ language was the lack of object-oriented-programming (OOP) in C</p>
+</li>
+<li><p>Classes are user-defined typres that allow a user to <em><strong><u>encapsulate</u></strong></em><br>data and functionality using member variables and member functions</p>
+</li>
+</ul>
+<h3 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h3><ul>
+<li><p>Object-oriented-programming is centred around <strong>objects</strong></p>
+</li>
+<li><p>Focuses on design and implementation of classes</p>
+</li>
+<li><p>Classes are the <strong>user-defined</strong> types that can be declared as an object</p>
+</li>
+</ul>
+<h3 id="Comparing-struct-and-class"><a href="#Comparing-struct-and-class" class="headerlink" title="Comparing struct and class"></a>Comparing <code>struct</code> and <code>class</code></h3><p>classes containing a sequence of objects of various types, a set of functions for manipulating these objects, and a set of restrictions on the access of these objects and function;</p>
+<p>structures which are classes without access restrictions</p>
+<h4 id="Recall-the-struct"><a href="#Recall-the-struct" class="headerlink" title="Recall the struct"></a>Recall the <code>struct</code></h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    std::string name; <span class="comment">// these are fields</span></span><br><span class="line">    std::string state;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line">Student s;</span><br><span class="line">s.name = <span class="string">&quot;Steven&quot;</span>;</span><br><span class="line">s.state = <span class="string">&quot;CA&quot;</span>;</span><br><span class="line">s.age = <span class="number">20</span></span><br><span class="line">s.age = <span class="number">-2345</span> <span class="comment">// ???</span></span><br></pre></td></tr></table></figure>
+
+<p>All these fields are public i.e. can be changed by the user</p>
+<p>Because of this, we can’t enforce certain behaviors in structs, like avoiding a negative age</p>
+<h3 id="Header-File-h-v-s-Source-Files-cpp"><a href="#Header-File-h-v-s-Source-Files-cpp" class="headerlink" title="Header File (.h) v.s. Source Files (.cpp)"></a>Header File (<strong>.h</strong>) v.s. Source Files (<strong>.cpp</strong>)</h3><h4 id="Header-File"><a href="#Header-File" class="headerlink" title="Header File"></a>Header File</h4><ul>
+<li><p>Are used to define the interface of a class</p>
+</li>
+<li><p>Typically contain:</p>
+<ul>
+<li><p>Function prototypes</p>
+</li>
+<li><p>Variable declarations</p>
+</li>
+<li><p>Class definitions</p>
+</li>
+<li><p>Type definitions</p>
+</li>
+<li><p>Macros and constants</p>
+</li>
+<li><p>Template definitions</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Define Functions</strong></p>
+</li>
+<li><p><strong>Interface</strong></p>
+</li>
+</ul>
+<h4 id="Source-File"><a href="#Source-File" class="headerlink" title="Source File"></a>Source File</h4><ul>
+<li><p>Are used to define the implementations of the functions and classes declared in the header file</p>
+</li>
+<li><p>Typically containL</p>
+<ul>
+<li><p>Function implementations</p>
+</li>
+<li><p>Executable code</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Implement logic</strong></p>
+</li>
+<li><p><strong>Logic</strong></p>
+</li>
+</ul>
+<h3 id="Class-design"><a href="#Class-design" class="headerlink" title="Class design"></a>Class design</h3><ol>
+<li><p>A constructor</p>
+</li>
+<li><p>Private member functions&#x2F;variables</p>
+</li>
+<li><p>Public member functions(interface for a user)</p>
+</li>
+<li><p>Destructor</p>
+</li>
+</ol>
+<h3 id="Constructor"><a href="#Constructor" class="headerlink" title="Constructor"></a>Constructor</h3><p>The constructor initializes the state of newly created objects</p>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">private:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> state;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    Student(<span class="built_in">std</span>::<span class="built_in">string</span> name, <span class="built_in">std</span>::<span class="built_in">string</span> state, <span class="type">int</span> age);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> <span class="title function_">getName</span><span class="params">()</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> <span class="title function_">getState</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Student.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">std::string <span class="title">Student::getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">std::string <span class="title">Student::getState</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;state;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Student::getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>-&gt;age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setName</span><span class="params">(std::string name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setState</span><span class="params">(std::string state)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;state = state;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Student::setAge</span><span class="params">(<span class="type">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (age &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//default constructor</span></span><br><span class="line">Student::<span class="built_in">Student</span>() &#123;</span><br><span class="line">    name = <span class="string">&quot;John Appleseed&quot;</span>;</span><br><span class="line">    state = <span class="string">&quot;CA&quot;</span></span><br><span class="line">    age = <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// parameterized constructor</span></span><br><span class="line">Student::<span class="built_in">Student</span>(std::string name, std::string state, <span class="type">int</span> age) &#123;</span><br><span class="line">    <span class="comment">// Use `this` keyword to disambiguate which &#x27;name&#x27; referring to</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">    <span class="keyword">this</span>-&gt;state = state;</span><br><span class="line">    <span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student::~<span class="built_in">Student</span>() &#123;</span><br><span class="line">    <span class="comment">// free/deallocate any data here</span></span><br><span class="line">    <span class="keyword">delete</span> [] my_array; <span class="comment">// for illustration</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The destructor is not explicitly called, it is automatically called when an object goes out of scope</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="some-cool-class-stuff"><a href="#some-cool-class-stuff" class="headerlink" title="some cool class stuff"></a>some cool class stuff</h4><p><strong>Type aliasing -</strong> allows you to create synonymous identifiers for types</p>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">Private:</span><br><span class="line">    <span class="comment">// an example of type aliasing</span></span><br><span class="line">    using String = <span class="built_in">std</span>::<span class="built_in">string</span></span><br><span class="line">    String name;</span><br><span class="line">    String state;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    Student(String name, String state, <span class="type">int</span> age);</span><br><span class="line">    String <span class="title function_">getName</span><span class="params">()</span>;</span><br><span class="line">    String <span class="title function_">getState</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Container-adapters"><a href="#Container-adapters" class="headerlink" title="Container adapters"></a>Container adapters</h2><p><strong>ALL</strong> containers in the STL are <em><strong><u>classes</u></strong></em></p>
+<p><code>template &lt;class T, class Container = deque&lt;T&gt; &gt; class queue;</code></p>
+<h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><ul>
+<li><p><strong>Polymorphism:</strong> Different objects might need to have the same interface</p>
+</li>
+<li><p><strong>Extensibility:</strong> Inheritance allows you to extend a class by creating a subclass with specific properties</p>
+</li>
+</ul>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="comment">// This is a virtual function, meaning that it is instantiated in the base class but overwritten in the subclass</span></span><br><span class="line">    virtual <span class="type">double</span> <span class="title function_">area</span><span class="params">()</span> <span class="type">const</span> = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Here we declare the **Circle** class which inherits from the **Shape** class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> public Shape &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="comment">// constructor</span></span><br><span class="line">    <span class="comment">// Here we have our constructor using list initialization construction</span></span><br><span class="line">    Circle(<span class="type">double</span> radius): _radius(radius) &#123;&#125;;</span><br><span class="line">    <span class="type">double</span> <span class="title function_">area</span><span class="params">()</span> <span class="type">const</span> &#123;</span><br><span class="line">        <span class="comment">// Here we are overwriting the base class function **area()** for a circle</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3.14</span> *_radius *_radius;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    <span class="comment">// Another pro of inheritance is the encapsulation of class variables</span></span><br><span class="line">    <span class="type">double</span> _radius</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Subclass-v-s-Container-Adapter"><a href="#Subclass-v-s-Container-Adapter" class="headerlink" title="Subclass v.s. Container Adapter"></a>Subclass v.s. Container Adapter</h3><ul>
+<li><p><strong>Subclasses</strong> inherit from base class functionality</p>
+</li>
+<li><p><strong>Container adapters</strong> provide the interface for several classes and act as a <strong><u>template parameter</u></strong></p>
+</li>
+</ul>
+<h2 id="Template-classes"><a href="#Template-classes" class="headerlink" title="Template classes"></a>Template classes</h2><p><font color=pink><strong>Template Class:</strong></font> A class that is parametrized over some number of types; it is comprised of member variables of a general type&#x2F;types</p>
+<figure class="highlight hh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Container</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Container</span> (T val);</span><br><span class="line">    <span class="function">T <span class="title">getValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>This is a <font color=pink><strong>template declaration</strong></font> and allows us to create template classes</p>
+<p><code>template &lt;typename T, typename U&gt;</code></p>
+<p>This is a <font color=pink><strong>template declaration</strong></font> list which can have various template parameters representing different types</p>
+<p>When doing our implementation for our template classes, we need</p>
+<h1 id="Template-Functions-Functions-Lambdas"><a href="#Template-Functions-Functions-Lambdas" class="headerlink" title="Template Functions, Functions, Lambdas"></a>Template Functions, Functions, Lambdas</h1><h1 id="Operators-Special-Member-Functions"><a href="#Operators-Special-Member-Functions" class="headerlink" title="Operators, Special Member Functions"></a>Operators, Special Member Functions</h1><h1 id="Move-Semantics-Type-safety"><a href="#Move-Semantics-Type-safety" class="headerlink" title="Move Semantics, Type safety"></a>Move Semantics, Type safety</h1>
+    <div class="gallery">
+        
+    </div>
+</main>
+
+        
+    <nav class="pagination">
+        <span class="prev">
+            
+        </span>
+        <span class="next">
+            
+                <a href="/Si1w/2024/09/13/hello-world/" >
+                    Hello World
+                </a>
+            
+        </span>
+    </nav>
+
+
+        <footer>
+    <p>&copy; Si1w</p>
+    <p>
+        Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>,
+        <a href="https://github.com/sunnybyeon/hexo-theme-dashed">Theme</a> by
+        <a href="https://github.com/sunnybyeon">sunnybyeon</a>
+    </p>
+</footer>
+
+    </body>
+</html>
