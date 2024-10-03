@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"si1w.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Types, Variables, OperatorsIntroduction to Java “Most popular” language  Runs on a “virtual machine” (JVM)  More complex than some  Simpler than others">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.092 MIT">
+<meta property="og:url" content="https://si1w.github.io/2024/10/02/6-092/index.html">
+<meta property="og:site_name" content="Si1w&#39;s Blog">
+<meta property="og:description" content="Types, Variables, OperatorsIntroduction to Java “Most popular” language  Runs on a “virtual machine” (JVM)  More complex than some  Simpler than others">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-02T13:52:02.000Z">
+<meta property="article:modified_time" content="2024-10-03T14:19:49.185Z">
+<meta property="article:author" content="Si1w">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://si1w.github.io/2024/10/02/6-092/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://si1w.github.io/2024/10/02/6-092/","path":"2024/10/02/6-092/","title":"6.092 MIT"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>6.092 MIT | Si1w's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Si1w's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Types-Variables-Operators"><span class="nav-number">1.</span> <span class="nav-text">Types, Variables, Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-Java"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction to Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compile"><span class="nav-number">1.1.1.</span> <span class="nav-text">Compile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Types"><span class="nav-number">1.2.</span> <span class="nav-text">Types</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variables"><span class="nav-number">1.3.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operators"><span class="nav-number">1.4.</span> <span class="nav-text">Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Concatenation"><span class="nav-number">1.5.</span> <span class="nav-text">String Concatenation (+)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-types-methods-conditionals"><span class="nav-number">2.</span> <span class="nav-text">More types, methods, conditionals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#More-types"><span class="nav-number">2.1.</span> <span class="nav-text">More types</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Division"><span class="nav-number">2.1.1.</span> <span class="nav-text">Division</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">2.2.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameters"><span class="nav-number">2.2.1.</span> <span class="nav-text">Parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable-Scope"><span class="nav-number">2.2.2.</span> <span class="nav-text">Variable Scope</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conditionals"><span class="nav-number">2.3.</span> <span class="nav-text">Conditionals</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-statement"><span class="nav-number">2.3.1.</span> <span class="nav-text">if statement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparison-operators"><span class="nav-number">2.3.2.</span> <span class="nav-text">Comparison operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boolean-operators"><span class="nav-number">2.3.3.</span> <span class="nav-text">Boolean operators</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loops-and-arrays"><span class="nav-number">3.</span> <span class="nav-text">Loops and arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Good-programming-style"><span class="nav-number">3.1.</span> <span class="nav-text">Good programming style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loops"><span class="nav-number">3.2.</span> <span class="nav-text">Loops</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-while-loop"><span class="nav-number">3.2.1.</span> <span class="nav-text">The while loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-for-loop"><span class="nav-number">3.2.2.</span> <span class="nav-text">The for loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedded-loops"><span class="nav-number">3.2.3.</span> <span class="nav-text">Embedded loops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays"><span class="nav-number">3.2.4.</span> <span class="nav-text">Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-initialization"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">Array initialization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Accessing-Arrays"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">Accessing Arrays</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Objects-and-classes"><span class="nav-number">4.</span> <span class="nav-text">Objects and classes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-oriented-programming"><span class="nav-number">4.1.</span> <span class="nav-text">Object oriented programming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-Classes"><span class="nav-number">4.2.</span> <span class="nav-text">Defining Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructors"><span class="nav-number">4.2.1.</span> <span class="nav-text">Constructors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Classes"><span class="nav-number">4.3.</span> <span class="nav-text">Using Classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference-v-s-Values"><span class="nav-number">4.4.</span> <span class="nav-text">Reference v.s. Values</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Primitives-v-s-References"><span class="nav-number">4.4.1.</span> <span class="nav-text">Primitives v.s. References</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">4.4.2.</span> <span class="nav-text">Reference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-types-and-methods"><span class="nav-number">4.5.</span> <span class="nav-text">Static types and methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Static"><span class="nav-number">4.5.1.</span> <span class="nav-text">Static</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Access-control-class-scope-packages-Java-API"><span class="nav-number">5.</span> <span class="nav-text">Access control, class scope, packages, Java API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Access-control"><span class="nav-number">5.1.</span> <span class="nav-text">Access control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Public-v-s-Private"><span class="nav-number">5.1.1.</span> <span class="nav-text">Public v.s. Private</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-scope"><span class="nav-number">5.2.</span> <span class="nav-text">Class scope</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-keyword"><span class="nav-number">5.2.1.</span> <span class="nav-text">this keyword</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages"><span class="nav-number">5.3.</span> <span class="nav-text">Packages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Defining-and-using-packages"><span class="nav-number">5.3.1.</span> <span class="nav-text">Defining and using packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-packages"><span class="nav-number">5.3.2.</span> <span class="nav-text">Special packages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-API"><span class="nav-number">5.4.</span> <span class="nav-text">Java API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList"><span class="nav-number">5.4.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sets"><span class="nav-number">5.4.2.</span> <span class="nav-text">Sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maps"><span class="nav-number">5.4.3.</span> <span class="nav-text">Maps</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Design-debugging-interfaces"><span class="nav-number">6.</span> <span class="nav-text">Design, debugging, interfaces</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Good-program-design"><span class="nav-number">6.1.</span> <span class="nav-text">Good program design</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-1-Don%E2%80%99t-Make-Mistakes"><span class="nav-number">6.1.1.</span> <span class="nav-text">Step 1. Don’t Make Mistakes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">Design</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-2-Find-Mistakes-Early"><span class="nav-number">6.1.2.</span> <span class="nav-text">Step 2. Find Mistakes Early</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tools-Eclipse-Warnings"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">Tools : Eclipse Warnings</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-3-Reproduce-the-Error"><span class="nav-number">6.1.3.</span> <span class="nav-text">Step 3. Reproduce the Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-4-Generate-Hypothesis"><span class="nav-number">6.1.4.</span> <span class="nav-text">Step 4. Generate Hypothesis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-5-Collect-Information"><span class="nav-number">6.1.5.</span> <span class="nav-text">Step 5. Collect Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-6-Examine-Data"><span class="nav-number">6.1.6.</span> <span class="nav-text">Step 6. Examine Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-Methods"><span class="nav-number">6.1.6.1.</span> <span class="nav-text">Use Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-Objects"><span class="nav-number">6.1.6.2.</span> <span class="nav-text">Use Objects</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interfaces"><span class="nav-number">6.2.</span> <span class="nav-text">Interfaces</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inheritance-exceptions-file-I-O"><span class="nav-number">7.</span> <span class="nav-text">Inheritance, exceptions, file I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inheritance"><span class="nav-number">7.1.</span> <span class="nav-text">Inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exceptions"><span class="nav-number">7.2.</span> <span class="nav-text">Exceptions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O"><span class="nav-number">7.3.</span> <span class="nav-text">I&#x2F;O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InputStream"><span class="nav-number">7.3.1.</span> <span class="nav-text">InputStream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputStreamReader"><span class="nav-number">7.3.2.</span> <span class="nav-text">InputStreamReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BufferedReader"><span class="nav-number">7.3.3.</span> <span class="nav-text">BufferedReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileReader"><span class="nav-number">7.3.4.</span> <span class="nav-text">FileReader</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Si1w</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://si1w.github.io/2024/10/02/6-092/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Si1w">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Si1w's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="6.092 MIT | Si1w's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          6.092 MIT
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-02 14:52:02" itemprop="dateCreated datePublished" datetime="2024-10-02T14:52:02+01:00">2024-10-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-03 15:19:49" itemprop="dateModified" datetime="2024-10-03T15:19:49+01:00">2024-10-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Types-Variables-Operators"><a href="#Types-Variables-Operators" class="headerlink" title="Types, Variables, Operators"></a>Types, Variables, Operators</h1><h2 id="Introduction-to-Java"><a href="#Introduction-to-Java" class="headerlink" title="Introduction to Java"></a>Introduction to Java</h2><ul>
+<li><p>“Most popular” language</p>
+</li>
+<li><p>Runs on a “virtual machine” (JVM)</p>
+</li>
+<li><p>More complex than some</p>
+</li>
+<li><p>Simpler than others</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><p>Source Code(.java) -&gt; javac -&gt; Byte Code(.class) -&gt; java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// Program execution begins here</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>so the program structure is:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ClassName</span> &#123;</span><br><span class="line">    <span class="comment">// class body</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>class</code> is a keyword</li>
+<li><code>ClassName</code> is the name of the class</li>
+<li><code>&#123;&#125;</code> is the body of the class</li>
+</ul>
+<h2 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h2><ul>
+<li><p><code>boolean</code>: Truth value</p>
+</li>
+<li><p><code>int</code> : Integer number</p>
+</li>
+<li><p><code>double</code> : Read number</p>
+</li>
+<li><p><code>String</code> : Text</p>
+</li>
+</ul>
+<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><p>Named location that stores a value of one particular type</p>
+<p>Form: <code>TYPE NAME</code></p>
+<h2 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h2><ul>
+<li><p>Assignment <code>=</code></p>
+</li>
+<li><p>Addition <code>+</code></p>
+</li>
+<li><p>Subtraction <code>-</code></p>
+</li>
+<li><p>Multiplication <code>*</code></p>
+</li>
+<li><p>Division <code>/</code></p>
+</li>
+<li><p>Modulus <code>%</code></p>
+</li>
+</ul>
+<p>Order of operations follow standard math rules;</p>
+<ol>
+<li><p>Parentheses</p>
+</li>
+<li><p>Multiplication and Division</p>
+</li>
+<li><p>Addition and Subtraction</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DoMath</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">1.0</span> + <span class="number">2.0</span> * <span class="number">3.0</span>;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">        result = result / <span class="number">2.0</span>;</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="String-Concatenation"><a href="#String-Concatenation" class="headerlink" title="String Concatenation (+)"></a>String Concatenation (+)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">text</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span> + <span class="string">&quot;world&quot;</span>;</span><br><span class="line">text = text + <span class="string">&quot;number&quot;</span> + <span class="number">5</span>;</span><br><span class="line">System.out.println(text);</span><br><span class="line"><span class="comment">// text = &quot;hello world number 5&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="More-types-methods-conditionals"><a href="#More-types-methods-conditionals" class="headerlink" title="More types, methods, conditionals"></a>More types, methods, conditionals</h1><h2 id="More-types"><a href="#More-types" class="headerlink" title="More types"></a>More types</h2><h3 id="Division"><a href="#Division" class="headerlink" title="Division"></a>Division</h3><p>Division <code>/</code> operates differently on integers and on doubles</p>
+<p>Example</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5.0</span> / <span class="number">2.0</span>; <span class="comment">// a = 2.5</span></span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">4</span> / <span class="number">2</span>; <span class="comment">// b = 2</span></span><br><span class="line"><span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">5</span> / <span class="number">2</span>; <span class="comment">// c = 2</span></span><br><span class="line"><span class="type">double</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">5</span> / <span class="number">2</span>; <span class="comment">// d = 2.0</span></span><br></pre></td></tr></table></figure>
+
+<p>Order of Operations</p>
+<p>Precedence like math, left to right. </p>
+<p>Right hand side of &#x3D; evaluated first</p>
+<p>Parenthesis increase precedence</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">NAME</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To call a method: <code>NAME();</code></p>
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">NAME</span><span class="params">(TYPE NAME)</span> &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To call: <code>NAME(EXPRESSION);</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[...] NAME(TYPE NAME, TYPE NAME) &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To call: <code>NAME(arg1, arg2);</code></p>
+<h3 id="Variable-Scope"><a href="#Variable-Scope" class="headerlink" title="Variable Scope"></a>Variable Scope</h3><p>Variables live in the block <code>&#123;&#125;</code> where they are defined (<strong>scope</strong>)</p>
+<p>Method parameters are like defining a new variables in the method</p>
+<p>Methods: Building Blocks</p>
+<ul>
+<li><p>Big programs are built out of small methods</p>
+</li>
+<li><p>Methods can be individually developed, tested and reused</p>
+</li>
+<li><p>Use of method does not need to know how it works</p>
+</li>
+<li><p>In Computer Science, this is called “abstraction”</p>
+</li>
+</ul>
+<h2 id="Conditionals"><a href="#Conditionals" class="headerlink" title="Conditionals"></a>Conditionals</h2><h3 id="if-statement"><a href="#if-statement" class="headerlink" title="if statement"></a>if statement</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (CONDITION) &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Comparison-operators"><a href="#Comparison-operators" class="headerlink" title="Comparison operators"></a>Comparison operators</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x == y</span><br><span class="line">x != y</span><br><span class="line">x &lt; y</span><br><span class="line">x &lt;= y</span><br><span class="line">x &gt; y</span><br><span class="line">x &gt;= y</span><br></pre></td></tr></table></figure>
+
+<h3 id="Boolean-operators"><a href="#Boolean-operators" class="headerlink" title="Boolean operators"></a>Boolean operators</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp; <span class="comment">// AND</span></span><br><span class="line">|| <span class="comment">// OR</span></span><br><span class="line">! <span class="comment">// NOT</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Loops-and-arrays"><a href="#Loops-and-arrays" class="headerlink" title="Loops and arrays"></a>Loops and arrays</h1><h2 id="Good-programming-style"><a href="#Good-programming-style" class="headerlink" title="Good programming style"></a>Good programming style</h2><p><font color="orange"><u><em><strong>The goal of good style is to make your code more readable by you and others.</strong></em></u></font></p>
+<ul>
+<li><p>Use good names for variables and methods</p>
+</li>
+<li><p>Use indentation</p>
+</li>
+<li><p>Add whitespaces</p>
+</li>
+<li><p>Don’t duplicate tests</p>
+</li>
+</ul>
+<h2 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h2><p>Loop operators allow to loop through a block of code</p>
+<h3 id="The-while-loop"><a href="#The-while-loop" class="headerlink" title="The while loop"></a>The while loop</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (CONDITION) &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Count carefully</p>
+<p>Make sure that your loop has a chance to finish</p>
+<h3 id="The-for-loop"><a href="#The-for-loop" class="headerlink" title="The for loop"></a>The for loop</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (INITIALIZATION; CONDITION; INCREMENT) &#123;</span><br><span class="line">    <span class="comment">// STATEMENTS;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>break</code> terminates a <code>for</code> or <code>while</code> loop immediately</p>
+<p><code>continue</code> skips the current iteration of a loop and proceeds directly to the next iteration</p>
+<h3 id="Embedded-loops"><a href="#Embedded-loops" class="headerlink" title="Embedded loops"></a>Embedded loops</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">        System.out.println(i + <span class="string">&quot; &quot;</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Scope of the variable defined in the initialization: respective for block</p>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>An array is an indexed list of values. All elements of an array must have the same type.</p>
+<p>The index starts at <font color="red"><u>zero</u></font> and ends at <font color="red"><u>length - 1</u></font></p>
+<p>An array is defined using <code>TYPE[]</code></p>
+<p>To create an array of a given size, use the operator <code>new</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] values = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">5</span>];</span><br><span class="line"><span class="type">int</span>[] values = <span class="keyword">new</span> <span class="title class_">int</span>[size];</span><br></pre></td></tr></table></figure>
+
+<h4 id="Array-initialization"><a href="#Array-initialization" class="headerlink" title="Array initialization"></a>Array initialization</h4><p>Curly braces can be used to initialize an array. It can <font color="red">ONLY</font> be used when you declare the variable</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] values = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Accessing-Arrays"><a href="#Accessing-Arrays" class="headerlink" title="Accessing Arrays"></a>Accessing Arrays</h4><p>To access the elemtns of an array, use the <code>[]</code> operator <code>values[index]</code></p>
+<p>Each array has a <code>length</code> variable built-in that contains the length of the array</p>
+<h1 id="Objects-and-classes"><a href="#Objects-and-classes" class="headerlink" title="Objects and classes"></a>Objects and classes</h1><h2 id="Object-oriented-programming"><a href="#Object-oriented-programming" class="headerlink" title="Object oriented programming"></a>Object oriented programming</h2><p>Objects group together</p>
+<ul>
+<li><p>Primitives</p>
+<ul>
+<li><p><code>int</code></p>
+</li>
+<li><p><code>double</code></p>
+</li>
+<li><p><code>chat</code></p>
+</li>
+<li><p>etc…</p>
+</li>
+</ul>
+</li>
+<li><p>Objects</p>
+<ul>
+<li><p><code>String</code></p>
+</li>
+<li><p>etc…</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Defining-Classes"><a href="#Defining-Classes" class="headerlink" title="Defining Classes"></a>Defining Classes</h2><p>Class Definition</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Baby</span> &#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="type">boolean</span> isMale;</span><br><span class="line">    <span class="type">double</span> weight;</span><br><span class="line">    <span class="type">double</span> decibels;</span><br><span class="line">    <span class="type">int</span> <span class="variable">numPoops</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">poop</span><span class="params">()</span> &#123;</span><br><span class="line">        numPoops += <span class="number">1</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;Oops!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class Instance</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Baby</span> <span class="variable">myBaby</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Baby</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Class names care Capitalized</p>
+</li>
+<li><p>1 Class &#x3D; 1 file</p>
+</li>
+<li><p>Having a <code>main</code> method means the class can be run</p>
+</li>
+</ul>
+<h3 id="Constructors"><a href="#Constructors" class="headerlink" title="Constructors"></a>Constructors</h3><ul>
+<li><p>Constructor name &#x3D;&#x3D; the class name</p>
+</li>
+<li><p>No return type - never returns anything</p>
+</li>
+<li><p>Usually initialize fields</p>
+</li>
+<li><p>All classes need at least one constructor</p>
+<ul>
+<li>If no constructor defined, defaults to</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ClASSNAME() &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Using-Classes"><a href="#Using-Classes" class="headerlink" title="Using Classes"></a>Using Classes</h2><p>Accessing fields</p>
+<ul>
+<li>Object.FIELDNAME</li>
+</ul>
+<p>Calling methods</p>
+<ul>
+<li>Object.METHODNAME([ARGS])</li>
+</ul>
+<h2 id="Reference-v-s-Values"><a href="#Reference-v-s-Values" class="headerlink" title="Reference v.s. Values"></a>Reference v.s. Values</h2><h3 id="Primitives-v-s-References"><a href="#Primitives-v-s-References" class="headerlink" title="Primitives v.s. References"></a>Primitives v.s. References</h3><ul>
+<li><p><strong>Primitive</strong> types are basic java types</p>
+<ul>
+<li><p>int, long, double, boolean, char, short, byte, float</p>
+</li>
+<li><p>The actual <strong>values</strong> are stored in the variable</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Reference</strong> types are arrays and objects</p>
+<ul>
+<li>String, int[], Baby, etc…</li>
+</ul>
+</li>
+</ul>
+<p>Variables are like fixed size cups in primitivs, which are small enough that they just fit into cup</p>
+<p>Objects are too big to fit in a variable, so they are stored somewhere else in memory, and the variable stores a number that locates the object</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>The object’s location is called a <strong>reference</strong></p>
+<ul>
+<li><p>using <code>[]</code> or <code>.</code></p>
+<ul>
+<li><p>Follows the reference to the object</p>
+</li>
+<li><p>May modify the object, but never the reference</p>
+</li>
+</ul>
+</li>
+<li><p>Imagine</p>
+<ul>
+<li><p>Following directions to a house</p>
+</li>
+<li><p>Moving the furniture around</p>
+</li>
+</ul>
+</li>
+<li><p>Analogous to</p>
+<ul>
+<li>Following the reference to an object</li>
+</ul>
+</li>
+</ul>
+<h2 id="Static-types-and-methods"><a href="#Static-types-and-methods" class="headerlink" title="Static types and methods"></a>Static types and methods</h2><h3 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h3><ul>
+<li><p>Applies to fields and methods</p>
+</li>
+<li><p>Means the field &#x2F; method</p>
+<ul>
+<li><p>Is defined for the class declaration</p>
+</li>
+<li><p>Is not unique for each instance</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>It keeps track of the number of babies that have been made in static field</p>
+<p>Non-static methods can reference static methods, but not the other way around</p>
+<p><code>main()</code> is used to run the program rather than change the program, so it is static</p>
+<h1 id="Access-control-class-scope-packages-Java-API"><a href="#Access-control-class-scope-packages-Java-API" class="headerlink" title="Access control, class scope, packages, Java API"></a>Access control, class scope, packages, Java API</h1><h2 id="Access-control"><a href="#Access-control" class="headerlink" title="Access control"></a>Access control</h2><h3 id="Public-v-s-Private"><a href="#Public-v-s-Private" class="headerlink" title="Public v.s. Private"></a>Public v.s. Private</h3><ul>
+<li><p>Public: others can use this</p>
+</li>
+<li><p>Private: only the class can access it</p>
+</li>
+</ul>
+<p>public&#x2F;private applies to any <strong>field</strong> or <strong>method</strong></p>
+<p>The reason to access control:</p>
+<ul>
+<li><p>Protect private information (sorta)</p>
+</li>
+<li><p>Clarify how others should use your class</p>
+</li>
+<li><p>Keep implementation separate from interface</p>
+</li>
+</ul>
+<h2 id="Class-scope"><a href="#Class-scope" class="headerlink" title="Class scope"></a>Class scope</h2><p>Just like methods, variables are accessible inside <code>&#123;&#125;</code></p>
+<h3 id="this-keyword"><a href="#this-keyword" class="headerlink" title="this keyword"></a><code>this</code> keyword</h3><ul>
+<li><p>Clarifies scope</p>
+</li>
+<li><p>Means ‘my project’</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Baby</span> &#123;</span><br><span class="line">    <span class="type">int</span> servings;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">feed</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.servings += servings;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">poop</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Oops!&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.servings -= <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><ul>
+<li><p>Each class belongs to a package</p>
+</li>
+<li><p>Classes in the same package serve a similar purpose</p>
+</li>
+<li><p>Packages are just directories</p>
+</li>
+<li><p>Classes in other packages need to be imported</p>
+</li>
+</ul>
+<h3 id="Defining-and-using-packages"><a href="#Defining-and-using-packages" class="headerlink" title="Defining and using packages"></a>Defining and using packages</h3><ul>
+<li>Define a package using <code>package</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> path.to.<span class="keyword">package</span>.foo;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Use a package using <code>import</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> path.to.<span class="keyword">package</span>.foo.Foo;</span><br><span class="line"><span class="keyword">import</span> path.to.<span class="keyword">package</span>.foo.*;</span><br></pre></td></tr></table></figure>
+
+<p>By using packages, we can</p>
+<ul>
+<li><p>Combine similar functionality</p>
+<ul>
+<li><p>org.london.libraries.Library</p>
+</li>
+<li><p>org.london.libraries.Book</p>
+</li>
+</ul>
+</li>
+<li><p>Separate similar names</p>
+<ul>
+<li><p>shopping.List</p>
+</li>
+<li><p>packing.List</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Special-packages"><a href="#Special-packages" class="headerlink" title="Special packages"></a>Special packages</h3><p>All classes “see” classes in the same package (no need to import)</p>
+<p>All classes “see” classes in java.lang</p>
+<h2 id="Java-API"><a href="#Java-API" class="headerlink" title="Java API"></a>Java API</h2><p>Java includes lots of packages&#x2F;classes</p>
+<p>Reuse classes to avoid extra work</p>
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>Modifiable list</p>
+<p>Internally implemented with arrays</p>
+<p>Features</p>
+<ul>
+<li><p>Get&#x2F;put items by index</p>
+</li>
+<li><p>Add items</p>
+</li>
+<li><p>Delete items</p>
+</li>
+<li><p>Loop over all items</p>
+</li>
+</ul>
+<h3 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h3><p>Like an <code>ArrayList</code> but </p>
+<ul>
+<li><p>Only one copy of each object, and</p>
+</li>
+<li><p>No array index</p>
+</li>
+</ul>
+<p>Features</p>
+<pre><code>- Add objects to the set
+
+- Remove objects from the set
+
+- Is an object in the set
+</code></pre>
+<p>TreeSet: Sorted (lowest to highest)<br>HashSet: Unordered(pseudo-random)</p>
+<h3 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h3><p>Stores a (<em>key</em>, <em>value</em>) pair of objects</p>
+<p>Look up the value by the <em>key</em>, get back the value</p>
+<h1 id="Design-debugging-interfaces"><a href="#Design-debugging-interfaces" class="headerlink" title="Design, debugging, interfaces"></a>Design, debugging, interfaces</h1><h2 id="Good-program-design"><a href="#Good-program-design" class="headerlink" title="Good program design"></a>Good program design</h2><ul>
+<li><p>Correct &#x2F; no errors</p>
+</li>
+<li><p>Easy to understand</p>
+</li>
+<li><p>Easy to modify &#x2F; extend</p>
+</li>
+<li><p>Good performance (speed)</p>
+</li>
+</ul>
+<h3 id="Step-1-Don’t-Make-Mistakes"><a href="#Step-1-Don’t-Make-Mistakes" class="headerlink" title="Step 1. Don’t Make Mistakes"></a>Step 1. Don’t Make Mistakes</h3><p>Don’t introduce errors in the first place</p>
+<ul>
+<li><p>Reuse: find existing code that does what you want</p>
+</li>
+<li><p>Design: think before you code</p>
+</li>
+<li><p>Best Practice: Recommended procedures &#x2F; techniques to avoid common problems</p>
+</li>
+</ul>
+<h4 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h4><p>A high-level, understandable description of what a program is supposed to do</p>
+<p>Don’t worry about the details, worry about the structure</p>
+<p>Visual design for objects, or how a program works</p>
+<h3 id="Step-2-Find-Mistakes-Early"><a href="#Step-2-Find-Mistakes-Early" class="headerlink" title="Step 2. Find Mistakes Early"></a>Step 2. Find Mistakes Early</h3><p>Easier to fix errors the earlier you find them</p>
+<ul>
+<li><p>Test your design</p>
+</li>
+<li><p>Tools: detect potential errors</p>
+</li>
+<li><p>Test your implementation</p>
+</li>
+<li><p>Check your work: assertions</p>
+</li>
+</ul>
+<h4 id="Tools-Eclipse-Warnings"><a href="#Tools-Eclipse-Warnings" class="headerlink" title="Tools : Eclipse Warnings"></a>Tools : Eclipse Warnings</h4><p>Warnings: may not be a mistake, but it likely is</p>
+<p>Suggestion: always fix all warnings</p>
+<p>Extra checks: FindBugs and related tools</p>
+<p>Unit testing: JUnit makes testing easier</p>
+<h3 id="Step-3-Reproduce-the-Error"><a href="#Step-3-Reproduce-the-Error" class="headerlink" title="Step 3. Reproduce the Error"></a>Step 3. Reproduce the Error</h3><ul>
+<li><p>Figure out how to repeat the error</p>
+</li>
+<li><p>Create a minimal test case</p>
+</li>
+</ul>
+<p>Go back to a working version and introduce changes one at a time until the error coms back</p>
+<p>Eliminate extra stuff that isn’t used</p>
+<h3 id="Step-4-Generate-Hypothesis"><a href="#Step-4-Generate-Hypothesis" class="headerlink" title="Step 4. Generate Hypothesis"></a>Step 4. Generate Hypothesis</h3><p>What is going wrong?</p>
+<p>What might be causing the error?</p>
+<h3 id="Step-5-Collect-Information"><a href="#Step-5-Collect-Information" class="headerlink" title="Step 5. Collect Information"></a>Step 5. Collect Information</h3><p>If x is the problem, how can we verify? Need information about what is going on inside the program</p>
+<p><code>System.out.println()</code> is very powerful</p>
+<h3 id="Step-6-Examine-Data"><a href="#Step-6-Examine-Data" class="headerlink" title="Step 6. Examine Data"></a>Step 6. Examine Data</h3><p>Examine your data</p>
+<p>Is your hypothesis correct? Fix the error, or generate a new hypothesis  </p>
+<h4 id="Use-Methods"><a href="#Use-Methods" class="headerlink" title="Use Methods"></a>Use Methods</h4><p>Write and test code once, use it multiple times: avoid duplication</p>
+<p>Use it without understanding how it works: <strong>encapsulation &#x2F; information hiding</strong></p>
+<h4 id="Use-Objects"><a href="#Use-Objects" class="headerlink" title="Use Objects"></a>Use Objects</h4><p>Objects combine a related set of variables and methods</p>
+<p>Provide a simple <em>interface</em></p>
+<h2 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h2><p>Manipulate objects, without knowing how they work</p>
+<p>Useful when you have similar but not identical objects</p>
+<p>Useful when you want to use code written by others</p>
+<p>Set of classes that share methods</p>
+<p>Declare an <em>interface</em> with the common methods</p>
+<p>Can use the interface, without knowing an object;s specific type</p>
+<h1 id="Inheritance-exceptions-file-I-O"><a href="#Inheritance-exceptions-file-I-O" class="headerlink" title="Inheritance, exceptions, file I&#x2F;O"></a>Inheritance, exceptions, file I&#x2F;O</h1><h2 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dude</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="variable">hp</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="variable">mp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayName</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name);   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">punchFace</span><span class="params">(Dude target)</span> &#123;</span><br><span class="line">        target.hp -= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now consider a <code>Wizard</code> class by Inheritance</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Wizard</span> <span class="keyword">extends</span> <span class="title class_">Dude</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Wizard can use everything* the Dude has</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wizard.hp += <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Wizard can do everything* Dude can do</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wizard.punchFace(dude);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Can use a Wizard like a Dude too</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dude.punchface(wizard);</span><br></pre></td></tr></table></figure>
+
+<p>everything* except for <strong>private</strong> fields and methods</p>
+<p><em><strong><u>You can only inherit from one class</u></strong></em></p>
+<h2 id="Exceptions"><a href="#Exceptions" class="headerlink" title="Exceptions"></a>Exceptions</h2><ul>
+<li><p>NullPointerException</p>
+</li>
+<li><p>ArrayIndexOutOfBoundsException</p>
+</li>
+<li><p>ClassCastException</p>
+</li>
+<li><p>RuntimeException</p>
+</li>
+</ul>
+<p>Exception : Event that occurs when something “unexpected” happens</p>
+<p>We can use an exception to tell the code using our method that something went wrong. Debugging and understanding control flow.</p>
+<h2 id="I-O"><a href="#I-O" class="headerlink" title="I&#x2F;O"></a>I&#x2F;O</h2><h3 id="InputStream"><a href="#InputStream" class="headerlink" title="InputStream"></a>InputStream</h3><ul>
+<li><p>InputStream is a stream of bytes</p>
+<ul>
+<li>Read one byte after another using <code>read()</code></li>
+</ul>
+</li>
+<li><p>A byte is just a number</p>
+<ul>
+<li><p>Data on your hand drive is stored in bytes</p>
+</li>
+<li><p>Bytes can be interpreted as characters, numbers, etc…</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="InputStreamReader"><a href="#InputStreamReader" class="headerlink" title="InputStreamReader"></a>InputStreamReader</h3><ul>
+<li><p>Reader is a class for character streams</p>
+<ul>
+<li>Read one character after another using <code>read()</code></li>
+</ul>
+</li>
+<li><p>InputStreamReader takes an InputStream and converts bytes to characters</p>
+</li>
+<li><p>Still inconvenient</p>
+<ul>
+<li>Can only read a character at a time</li>
+</ul>
+</li>
+</ul>
+<h3 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h3><ul>
+<li>BufferedReader buffers a character stream so you can read line by line</li>
+</ul>
+<h3 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h3><ul>
+<li><p>FileReader takes a text file</p>
+<ul>
+<li><p>converts it into a character stream</p>
+</li>
+<li><p>FileReader (<code>&quot;Path/to/file&quot;</code>)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Use this + BufferedReader to read a file</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/23/AP1400-2/" rel="prev" title="AP1400-2 Amirkabir University of Technology">
+                  <i class="fa fa-angle-left"></i> AP1400-2 Amirkabir University of Technology
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Si1w</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
