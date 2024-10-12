@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: Si1w's Page
 ---
 <div class="blurb">
