@@ -53,4 +53,8 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+markdown: kramdownname: Si1w
+
 markdown: kramdown
+
+permalink: /blog/:year/:month/:day/:title
