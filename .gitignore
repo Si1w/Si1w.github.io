@@ -4,3 +4,10 @@ _site
 .jekyll-metadata
 vendor
 .DS_Store
+cv/CV.aux
+cv/CV.fdb_latexmk
+cv/CV.fls
+cv/CV.log
+cv/CV.out
+cv/CV.synctex.gz
+cv/CV.tex
