@@ -55,7 +55,7 @@ plugins:
 markdown: kramdown
 
 kramdown:
-  math_engine: null
+  math_engine: mathjax
   input: GFM
 
 permalink: /blog/:year/:month/:day/:title
