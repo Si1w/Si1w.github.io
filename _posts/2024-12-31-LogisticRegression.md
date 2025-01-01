@@ -10,3 +10,155 @@ tags:
     - CS229
 mathjax: true
 ---
+# Locally Weighted Regression
+
+- **Parametric learning algorithm:** Fit a fixed set of parameters ($\theta$) to the data.
+
+- **Non-parametric learning algorithm:** The amount of data/parameters you need to keep grows (linearly) with the size of the data.
+
+To evaluate $h$ at a certain point $x$, in **linear regression**, we need to fit $\theta$ to minimize the cost function: $\frac{1}{2}\sum_{i=1}^{m}(y^{(i)} - \theta^T x^{(i)})^2$. 
+
+In **locally weighted regression**, we fit $\theta$ to minimize the new cost function: 
+
+$$\sum_{i=1}^{m} w^{(i)}(y^{(i)} - \theta^T x^{(i)})^2$$
+
+where $w^{(i)}$ is a weighting function. The default choice of $w^{(i)}$ is $exp(-\frac{(x^{(i)} - x)^2}{2\tau^2})$. 
+
+- If $\vert{x^{(i)} - x}\vert$ is small, then $w^{(i)}$ is close to 1. 
+
+- If $\vert{x^{(i)} - x}\vert$ is large, then $w^{(i)}$ is close to 0.
+
+The bandwidth $\tau$ is a hyperparameter that controls how quickly the weights decrease as you move away from $x$.
+
+# Probabilistic Interpretation
+
+Assume that $y^{(i)} = \theta^T x^{(i)} + \epsilon^{(i)}$, where $\epsilon^{(i)}$ is a random variable that represents the noise in the data. 
+
+- $\epsilon^{(i)} \sim N(0, \sigma^2)$
+
+- $P(\epsilon^{(i)}) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(\epsilon^{(i)})^2}{2\sigma^2})$
+
+This implies that:
+
+- $y^{(i)} \vert x^{(i)};\theta \sim N(\theta^T x^{(i)}, \sigma^2)$
+
+- $P(y^{(i)} \vert x^{(i)};\theta) = \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2\sigma^2})$
+
+The likelihood of $\theta$ given the data is 
+
+$$
+\begin{aligned}
+L(\theta) &= P(\vec{y}|X;\theta) \\
+&= \prod_{i=1}^{m} P(y^{(i)}|x^{(i)};\theta) \\
+&= \prod_{i=1}^{m} \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2\sigma^2}) \\
+&= (\frac{1}{\sqrt{2\pi}\sigma})^m exp(-\frac{1}{2\sigma^2}\sum_{i=1}^{m}(y^{(i)} - \theta^T x^{(i)})^2) \\
+\end{aligned}
+$$
+
+**TIPS:** The reason for using the term **likelihood** is that we view it as a function of parameters holding the data fixed, then we call it a likelihood function.
+
+The log-likelihood function is
+
+$$
+\begin{aligned}
+l(\theta) &= log(L(\theta)) \\
+&= mlog(\frac{1}{\sqrt{2\pi}\sigma}) - \frac{1}{2\sigma^2}\sum_{i=1}^{m}(y^{(i)} - \theta^T x^{(i)})^2
+\end{aligned}
+$$
+
+In statistics, we often use **maximum likelihood estimation (MLE)** to estimate the parameters. In this case, choose $\theta$ to maximize $l(\theta)$. It is actually the same as choosing $\theta$ to minimize $\sum_{i=1}^{m}(y^{(i)} - \theta^T x^{(i)})^2$, which is the cost function in linear regression.
+
+# Logistic Regression
+
+For (binary) classification problems, i.e. $y \in \{0, 1\}$, linear regression is not a good choice. Therefore, we introduce **logistic regression**.
+
+$$h_{\theta}(x) = g(\theta^T x)$$
+
+where $g(z) = \frac{1}{1 + e^{-z}}$ is the **sigmoid function**.
+
+For binary classification, we can interpret $h_{\theta}(x)$ as the probability that $y = 1$ given $x$ and $\theta$, and hence $1 - h_{\theta}(x)$ as the probability that $y = 0$ given $x$ and $\theta$.
+
+- $P(y=1 \vert x;\theta) = h_{\theta}(x)$
+
+- $P(y=0 \vert x;\theta) = 1 - h_{\theta}(x)$
+
+We can combine these two functions into one:
+
+$$P(y|x;\theta) = (h_{\theta}(x))^y(1 - h_{\theta}(x))^{1-y}$$
+
+The likelihood function can therefore be written as:
+
+$$
+\begin{aligned}
+L(\theta) &= \prod_{i=1}^{m} P(y^{(i)}|x^{(i)};\theta) \\
+&= \prod_{i=1}^{m} (h_{\theta}(x^{(i)}))^{y^{(i)}}(1 - h_{\theta}(x^{(i)}))^{1-y^{(i)}}
+\end{aligned}
+$$
+
+Also, the log-likelihood function is:
+
+$$
+\begin{aligned}
+l(\theta) &= \log(L(\theta)) \\
+&= \sum_{i=1}^{m} \left[ y^{(i)} \log(h_{\theta}(x^{(i)})) + (1 - y^{(i)}) \log(1 - h_{\theta}(x^{(i)})) \right]
+\end{aligned}
+$$
+
+Finally, to choose $\theta$ to maximize $l(\theta)$, we can use the **gradient ascent** algorithm.
+
+$$\theta_j := \theta_j + \alpha \frac{\partial l(\theta)}{\partial \theta_j}$$
+
+Take the derivative of $l(\theta)$ with respect to $\theta_j$:
+
+$$
+\begin{aligned}
+\frac{\partial l(\theta)}{\partial \theta_j} &= \sum_{i=1}^{m} \left[ y^{(i)} \frac{1}{h_{\theta}(x^{(i)})} \frac{\partial h_{\theta}(x^{(i)})}{\partial \theta_j} - (1 - y^{(i)}) \frac{1}{1 - h_{\theta}(x^{(i)})} \frac{\partial h_{\theta}(x^{(i)})}{\partial \theta_j} \right] \\
+&= \sum_{i=1}^{m} \left[ y^{(i)} \frac{1}{h_{\theta}(x^{(i)})} h_{\theta}(x^{(i)})(1 - h_{\theta}(x^{(i)}))x_j^{(i)} - (1 - y^{(i)}) \frac{1}{1 - h_{\theta}(x^{(i)})} h_{\theta}(x^{(i)})(1 - h_{\theta}(x^{(i)}))x_j^{(i)} \right] \\
+&= \sum_{i=1}^{m} \left[ y^{(i)}(1 - h_{\theta}(x^{(i)})) - (1 - y^{(i)}) h_{\theta}(x^{(i)}) \right]x_j^{(i)} \\
+&= \sum_{i=1}^{m} (y^{(i)} - h_{\theta}(x^{(i)})) x_j^{(i)}
+\end{aligned}
+$$
+
+Therefore, the update rule is:
+
+$$\theta_j := \theta_j + \alpha \sum_{i=1}^{m} (y^{(i)} - h_{\theta}(x^{(i)})) x_j^{(i)}$$
+
+The reason why we have `+` instead of `-` is that we are using **MLE** to estimate the parameters instead of **MSE**.
+
+**TIPS:** There is no equivalent of normal equations for logistic regression. In general, there is no known way to have a closed-form solution to logistic regression. Thus, we have to use an **iterative optimization algorithm** to solve it.
+
+# Newton's Method
+
+$$\theta^{(1)} := \theta^{(0)} - \Delta$$
+
+where $\Delta = \frac{f(\theta^{(0)})}{f'(\theta^{(0)})}$.
+
+By induction, we have
+
+$$\theta^{(t+1)} := \theta^{(t)} - \Delta$$
+
+where $\Delta = \frac{f(\theta^{(t)})}{f'(\theta^{(t)})}$.
+
+Let $f(\theta) = l'(\theta)$, then
+
+$$
+\theta^{(t+1)} := \theta^{(t)} - \frac{l'(\theta^{(t)})}{l''(\theta^{(t)})}
+$$
+
+- $l'(\theta) = \sum_{i=1}^{m} (y^{(i)} - h_{\theta}(x^{(i)}))x^{(i)}$
+
+- $l''(\theta) = -\sum_{i=1}^{m} h_{\theta}(x^{(i)})(1 - h_{\theta}(x^{(i)}))(x^{(i)})^2$
+
+**Newton's method** has a quadratic convergence rate, which is much faster than **gradient ascent**. Informally, if one iteration of Newton's method has $0.01$ error, then the next iteration will have $0.0001$ error.
+
+When $\theta$ is a vector, the update rule is:
+
+$$\theta := \theta- H^{-1}\nabla_{\theta}l(\theta)$$
+
+where $H$ is the **Hessian matrix** of $l(\theta)$.
+
+$$
+H_{ij} = \frac{\partial^2}{\partial \theta_i \partial \theta_j} l(\theta)
+$$
+
+As we can see, if in higher dimensions, **Newton's method** is computationally expensive.
