@@ -12,8 +12,6 @@ mathjax: true
 ---
 # Bias
 
-**Bias:** The difference between the average prediction of our model and the correct value which we are trying to predict.
-
 **High Bias:** When a model has high bias, it means that it is too simple and does not capture the underlying structure of the data well. (**Underfitting**)
 
 **Low Bias:** When a model has low bias, it means that it does capture the underlying structure of the data well. (**Overfitting**)
