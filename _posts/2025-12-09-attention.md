@@ -2,6 +2,7 @@
 title: Attention
 date: 2025-12-09
 tag: Neural Networks, Machine Translation
+mathjax: true
 ---
 # Papers & Blogs
 
