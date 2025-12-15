@@ -1,43 +1,178 @@
-body {
-    margin: 60px auto;
-    width: 70%;
-}
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-}
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
-}
-a {
-    text-decoration: none;
-    color: #999;
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+@import url("/css/post.css");
+
+:root {
+    --foreground: hsl(0, 0%, 20%);
+    --slightly-light: hsl(0, 0%, 30%);
+    --light: hsl(0, 0%, 50%);
+    --very-light: hsl(0, 0%, 93%);
+    --link: hsl(75, 35%, 25%);
+    --link-underline: hsl(75, 15%, 75%);
+    --mark: hsl(50, 80%, 85%);
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
+* {
+    box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    max-width: 100%;
+}
+
+body {
+    color: var(--foreground);
+    margin: auto;
+    padding: 0 25px 40px;
+    width: 550px;
+    max-width: 100%;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    line-height: 1.6;
+}
+
+nav {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    border-bottom: 1px solid var(--light);
+}
+
+nav ul {
+    padding: 0;
+    margin: 0 0 1rem;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    overflow: auto;
+}
+
+nav ul li {
+    white-space: nowrap;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--foreground);
+}
+
+.container {
+    margin: 0;
+}
+
+a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--slightly-light);
+}
+
+h1 {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+p {
+    margin: 0.8rem 0;
+    font-size: 1rem;
+    color: var(--foreground);
+}
+
+blockquote {
+    margin: 0;
+    padding: 0 1.2rem;
+    border-left: 3.5px solid var(--light);
+}
+
+code, pre {
+    font-family: "Cascadia Code", "Source Code Pro", monospace;
+    background-color: var(--very-light);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+}
+
+mark {
+    background-color: var(--mark);
+}
+
+footer {
+    border-top: 1px solid var(--light);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--light);
+    text-align: center;
+}
+
+footer ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+footer a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+ul.posts {
+    margin: 1.5rem 0 2rem;
+    padding: 0;
+    list-style: none;
 }
 
 ul.posts li {
-    list-style: none;
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    margin: 0.35rem 0;
+    color: var(--light);
+}
+
+ul.posts li span {
+    flex-shrink: 0;
+    font-size: 0.95rem;
+}
+
+ul.posts li a {
+    position: relative;
+    display: inline-block;
+    color: var(--foreground);
+    text-decoration: none;
+}
+
+ul.posts li a::after {
+    content: "";
+    border-bottom: 1px dashed var(--light);
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    z-index: -1;
+}
+
+ul.posts li a span {
+    background-color: #fff;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0 18px 32px;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+    }
 }

@@ -1,0 +1,45 @@
+p.meta {
+	margin: 0 0 1.5rem;
+	color: var(--light, #808080);
+	font-size: 0.95rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.post {
+	display: grid;
+	gap: 1.2rem;
+	font-size: 1.02rem;
+}
+
+.post h2 {
+	margin-top: 2.5rem;
+	font-size: 1.5rem;
+}
+
+.post h3 {
+	margin-top: 2rem;
+	font-size: 1.25rem;
+}
+
+.post img,
+.post video,
+.post iframe {
+	width: 100%;
+	display: block;
+}
+
+.post pre {
+	margin: 0;
+	padding: 0.75rem 1rem;
+}
+
+.post ul,
+.post ol {
+	padding-left: 1.5rem;
+}
+
+.post blockquote {
+	background-color: var(--very-light, #f0f0f0);
+	padding: 0.75rem 1.2rem;
+}

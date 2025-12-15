@@ -280,7 +280,7 @@ $$
 \end{aligned}
 $$
 
-Then pass the hidden state from the top layer of the RNN and through a linear layer $f$, to make a prediction of what the next token in the target (output) sequence should be $\hat{y}_{t+1}$.
+Then pass the hidden state from the top layer of the RNN $s^{2}_{t}$ and through a linear layer $f$, to make a prediction of what the next token in the target (output) sequence should be $\hat{y}_{t+1}$.
 
 $$
 \hat{y}_{t+1} = f(s^L_t)
