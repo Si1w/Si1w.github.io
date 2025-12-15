@@ -26,7 +26,7 @@ mathjax: true
 
 # Implementation
 
-- [pytorch-seq2seq](https://github.com/bentrevett/pytorch-seq2seq)
+- [Pytorch-seq2seq](https://github.com/bentrevett/pytorch-seq2seq)
 
 # Machine Translation
 
@@ -41,22 +41,22 @@ Essentially, translation here is not about "understanding" linguistics, but calc
 
 ### Noisy Channel Model
 
-Formally, given a source sentence $c$ (Chinese), we need to find the target sentence $e$ (English) that maximizes the conditional probability $P(e|c)$.
+Formally, given a source sentence $c$ (Chinese), we need to find the target sentence $e$ (English) that maximizes the conditional probability $P(e \mid c)$.
 
 Based on Bayes' Theorem, we can decompose this as:
 
 $$
-P(e|c) = \frac{P(c|e)P(e)}{P(c)}
+P(e \mid c) = \frac{P(c \mid e)P(e)}{P(c)}
 $$
 
 Since $P(c)$ is constant for any given source sentence, we can ignore it during the search. Thus, our goal becomes:
 
 $$
-\text{argmax}_{e} P(e|c) \propto \text{argmax}_{e} \underbrace{P(c|e)}_{\text{Translation Model}} \times \underbrace{P(e)}_{\text{Language Model}}
+	ext{argmax}_{e} P(e \mid c) \propto \text{argmax}_{e} \underbrace{P(c \mid e)}_{\text{Translation Model}} \times \underbrace{P(e)}_{\text{Language Model}}
 $$
 
 Where:
-- $P(c|e)$ is the **Translation Model**. It measures **fidelity**, or how likely the English sentence $e$ can generate the Chinese sentence $c$ (ensuring the meaning is preserved).
+- $P(c \mid e)$ is the **Translation Model**. It measures **fidelity**, or how likely the English sentence $e$ can generate the Chinese sentence $c$ (ensuring the meaning is preserved).
 - $P(e)$ is the **Language Model**. It measures **fluency**, or how likely $e$ is to be a valid, natural English sentence (ensuring the grammar is correct).
 
 To find the specific sentence $e$ that maximizes this product, we use a search algorithm known as the **Decoder**.
@@ -81,28 +81,28 @@ In our case, the alignment $a$ is a **latent variable** (hidden data we cannot o
 
 #### Lexical Translation Model (IBM Model 1)
 
-IBM Model 1 is the simplest model. It assumes that **word order does not matter** and treats sentences as "bags of words." It focuses purely on **Lexical Translation Probability** $t(c|e)$.
+IBM Model 1 is the simplest model. It assumes that **word order does not matter** and treats sentences as "bags of words." It focuses purely on **Lexical Translation Probability** $t(c \mid e)$.
 
-For example, to determine if `apple` maps to `苹果`, we need to learn the probability $t(\text{苹果}|\text{apple})$.
+For example, to determine if `apple` maps to `苹果`, we need to learn the probability $t(\text{苹果} \mid \text{apple})$.
 
 For every word position $j$ in the Chinese sentence:
 1.  Select an English word $e_i$ to align with (uniformly).
-2.  Translate $e_i$ into Chinese word $c_j$ based on the probability $t(c_j|e_i)$.
+2.  Translate $e_i$ into Chinese word $c_j$ based on the probability $t(c_j \mid e_i)$.
 
 Mathematically, the probability of a Chinese sentence $c$ and an alignment $a$ given an English sentence $e$ is:
 
 $$
 \begin{aligned}
-P(c, a | e) &\propto \prod_{j=1}^{m} t(c_j | e_{a_j}) \\
-P(c | e) &\propto \sum_{a_{1}=0}^{l} \sum_{a_{2}=0}^{l} \ldots \sum_{a_{m}=0}^{l} P(c, a | e) \\
-&\propto \sum_{a_{1}=0}^{l} \sum_{a_{2}=0}^{l} \ldots \sum_{a_{m}=0}^{l} \prod_{j=1}^{m} t(c_j | e_{a_j})
+P(c, a \mid e) &\propto \prod_{j=1}^{m} t(c_j \mid e_{a_j}) \\
+P(c \mid e) &\propto \sum_{a_{1}=0}^{l} \sum_{a_{2}=0}^{l} \ldots \sum_{a_{m}=0}^{l} P(c, a \mid e) \\
+&\propto \sum_{a_{1}=0}^{l} \sum_{a_{2}=0}^{l} \ldots \sum_{a_{m}=0}^{l} \prod_{j=1}^{m} t(c_j \mid e_{a_j})
 \end{aligned}
 $$
 
 We use the EM algorithm to train this:
 1.  Initially assume `apple` aligns to any Chinese word with equal probability.
 2.  In the E-step, calculate alignment weights.
-3.  In the M-step, if `apple` and `苹果` frequently appear in the same sentence pairs, increase $t(\text{苹果}|\text{apple})$.
+3.  In the M-step, if `apple` and `苹果` frequently appear in the same sentence pairs, increase $t(\text{苹果} \mid \text{apple})$.
 4.  Repeat until convergence.
 
 **Limitation:** It fails to distinguish structure. `I eat apple` and `apple eat I` have the same probability in Model 1.
@@ -111,14 +111,14 @@ We use the EM algorithm to train this:
 
 To address the structure issue, IBM Model 2 assumes that **position matters**.
 
-Intuitively, words in similar positions are more likely to align. The first word in English usually aligns to the beginning of the Chinese sentence, not the end. To model this, we introduce an **Alignment Probability** (or Distortion parameter) $q(i|j, l, m)$.
+Intuitively, words in similar positions are more likely to align. The first word in English usually aligns to the beginning of the Chinese sentence, not the end. To model this, we introduce an **Alignment Probability** (or Distortion parameter) $q(i \mid j, l, m)$.
 
 This parameter represents the probability that the $j$-th Chinese word aligns to the $i$-th English word, given the sentence lengths $l$ and $m$.
 
 The joint probability now includes this position term:
 
 $$
-P(c, a | e) \propto \prod_{j=1}^{m} \left( t(c_j | e_{a_j}) \times q(a_j | j, l, m) \right)
+P(c, a \mid e) \propto \prod_{j=1}^{m} \left( t(c_j \mid e_{a_j}) \times q(a_j \mid j, l, m) \right)
 $$
 
 Visually, this encourages alignment points to cluster around the diagonal:
@@ -139,21 +139,21 @@ Models 1 and 2 assume a one-to-one mapping (or many-to-one), but real languages 
 IBM Model 3 introduces **Fertility**, denoted as $\phi$. It models **how many Chinese words** are generated by a single English word $e_i$.
 
 The generative story becomes more realistic:
-1.  **Fertility:** For each English word $e_i$, choose a fertility count $\phi_i$ with probability $n(\phi_i | e_i)$.
-2.  **Translation:** Generate $\phi_i$ Chinese words using $t(c|e)$.
-3.  **Distortion:** Place the generated words in positions according to distortion probabilities. Here, we use $d(j|i, l, m)$ to denote the probability of placing a Chinese word at position $j$ given it was generated from English word position $i$.
+1.  **Fertility:** For each English word $e_i$, choose a fertility count $\phi_i$ with probability $n(\phi_i \mid e_i)$.
+2.  **Translation:** Generate $\phi_i$ Chinese words using $t(c \mid e)$.
+3.  **Distortion:** Place the generated words in positions according to distortion probabilities. Here, we use $d(j \mid i, l, m)$ to denote the probability of placing a Chinese word at position $j$ given it was generated from English word position $i$.
 
 Mathematically, the formulation becomes:
 
 $$
-P(c, a|e) \propto \prod_{i=1}^{l} n(\phi_i | e_i) \times \prod_{k=1}^{\phi_i} \Bigl( t(c_{j_k} | e_i) \times d(j | i, l, m) \Bigr)
+P(c, a \mid e) \propto \prod_{i=1}^{l} n(\phi_i \mid e_i) \times \prod_{k=1}^{\phi_i} \Bigl( t(c_{j_k} \mid e_i) \times d(j \mid i, l, m) \Bigr)
 $$
 
 Here:
 
-- $n(\phi_i | e_i)$ is the number of Chinese words generated by English word $e_i$.
-- $t(c_{j_k} | e_i)$ is the lexical translation probability.
-- $d(j | i, l, m)$ is the distortion probability for placing words.
+- $n(\phi_i \mid e_i)$ is the number of Chinese words generated by English word $e_i$.
+- $t(c_{j_k} \mid e_i)$ is the lexical translation probability.
+- $d(j \mid i, l, m)$ is the distortion probability for placing words.
 
 Because we now have to sum over all possible fertility combinations, exact calculation is impossible. We must use **sampling techniques** to estimate parameters.
 
@@ -172,14 +172,14 @@ $$
 
 #### Deficiency Model (IBM Model 5)
 
-Models 3 and 4 have a problem called **deficiency**, which means that $\sum_{c} \sum_{a} P(c, a | e) < 1$ or will allocate some probability mass to impossible events.
+Models 3 and 4 have a problem called **deficiency**, which means that $\sum_{c} \sum_{a} P(c, a \mid e) < 1$ or will allocate some probability mass to impossible events.
 
 For example, two English words generating Chinese words that overlap in position.
 
 Therefore, Model 5 modifies the distortion model to ensure that words are placed only in unoccupied positions, fixing the deficiency issue.
 
 $$
-d(j - \odot_{i-1}|\text{vacancies})
+d(j - \odot_{i-1} \mid \text{vacancies})
 $$
 
 It will track which positions are already filled and only allow placing new words in the remaining vacancies.
@@ -222,12 +222,12 @@ Where:
 
 The RNN can easily map sequences to sequences whenever the alignment between the inputs the outputs is known ahead of time. However, it is not clear how to apply an RNN to problems whose input and the output sequences have different lengths with complicated and non-monotonic relationships.
 
-Long Short-Term Memory (LSTM) is known to learn problems with long range dependencies. The goal of LSTM is to estimate the conditional probability $P(y_1, \ldots, y_{T'} | x_1, \ldots, x_T)$ where the input sequence $(x_1, \ldots, x_T)$ and the output sequence $(y_1, \ldots, y_{T'})$ may have different lengths $T$ and $T'$.
+Long Short-Term Memory (LSTM) is known to learn problems with long range dependencies. The goal of LSTM is to estimate the conditional probability $P(y_1, \ldots, y_{T'} \mid x_1, \ldots, x_T)$ where the input sequence $(x_1, \ldots, x_T)$ and the output sequence $(y_1, \ldots, y_{T'})$ may have different lengths $T$ and $T'$.
 
 The LSTM computes this probability by first obtaining the fixed-dimensional representation $v$ of the input sequence $(x_1, \ldots, x_T)$ by iterating the following equations from $t=1$ to $T$:
 
 $$
-p(y1, \ldots, y_{T'} | x_1, \ldots, x_T) = \prod_{t=1}^{T'} p(y_t | v, y_1, \ldots, y_{t-1})
+p(y1, \ldots, y_{T'} \mid x_1, \ldots, x_T) = \prod_{t=1}^{T'} p(y_t \mid v, y_1, \ldots, y_{t-1})
 $$
 
 In Seq2Seq model implementation, it uses two separate LSTMs with four layers: one for the input sequence (encoder) and one for the output sequence (decoder). Also, to improve performance, the model reverses the order of the words in the input sequence. For example, instead of mapping the $a$, $b$, $c$ to $\alpha$, $\beta$, $\gamma$, the LSTM is asked to map $c$, $b$, $a$ to $\alpha$, $\beta$, $\gamma$. In this way, $a$ is in close proximity to $\alpha$, $b$ to $\beta$ and so on, which makes SGD easily to establish communication between the input and output.
@@ -330,12 +330,12 @@ During each iteration of the loop, we:
 
 1. pass the input, previous hidden and previous cell states $(y_t, s_{t-1}, c_{t-1})$ into the decoder
 2. receive a prediction, next hidden state and next cell state $(\hat{y}_{t+1}, s_t, c_t)$ from the decoder
-3. place our prediction, $\hat{y}_{t+1}/$ `output` in our tensor of predictions, $\hat{Y}/$`outputs`
+3. place our prediction, $\hat{y}_{t+1}$ (`output`) in our tensor of predictions, $\hat{Y}$ (`outputs`)
 4. decide if we are going to "teacher force" or not
-    - if we do, the next `input` is the ground-truth next token in the sequence, $y_{t+1}/$ `trg[t]`
-    - if we don't, the next `input` is the predicted next token in the sequence, $\hat{y}_{t+1}/$ `top1`, which we get by doing an `argmax` over the output tensor
+    - if we do, the next `input` is the ground-truth next token in the sequence, $y_{t+1}$ (`trg[t]`)
+    - if we don't, the next `input` is the predicted next token in the sequence, $\hat{y}_{t+1}$ (`top1`), which we get by doing an `argmax` over the output tensor
 
-Once we've made all of our predictions, we return our tensor full of predictions, $\hat{Y}/$`outputs`.
+Once we've made all of our predictions, we return our tensor full of predictions, $\hat{Y}$ (`outputs`).
 
 ```python
 class Seq2Seq(nn.Module):
