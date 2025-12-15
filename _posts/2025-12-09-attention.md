@@ -233,7 +233,7 @@ $$
 In Seq2Seq model implementation, it uses two separate LSTMs with four layers: one for the input sequence (encoder) and one for the output sequence (decoder). Also, to improve performance, the model reverses the order of the words in the input sequence. For example, instead of mapping the $a$, $b$, $c$ to $\alpha$, $\beta$, $\gamma$, the LSTM is asked to map $c$, $b$, $a$ to $\alpha$, $\beta$, $\gamma$. In this way, $a$ is in close proximity to $\alpha$, $b$ to $\beta$ and so on, which makes SGD easily to establish communication between the input and output.
 
 $$
-(h^1_t, c^1_t) = \text{EncoderLSTM}(e(x_t), (h^1_{t-1}, c^1_{t-1}))
+(h^1_t, c^1_t) = \text{EncoderLSTM}(e(x_t), (h^1_{t-1}, c^1_{t-1})) \\
 (h^2_t, c^2_t) = \text{EncoderLSTM}(h^1_t, (h^2_{t-1}, c^2_{t-1}))
 $$
 
@@ -272,11 +272,11 @@ class Encoder(nn.Module):
 In the `forward` method, we pass in the source sentence, $X$, which is converted into dense vectors using the `embedding` layer, and then dropout is applied. These embeddings are then passed into the RNN. As we pass a whole sequence to the RNN, it will automatically do the recurrent calculation of the hidden states over the whole sequence for us! Notice that we do not pass an initial hidden or cell state to the RNN. 
 
 $$
-(s^1_t, c^1_t) = \text{DecoderLSTM}(e(y_{t-1}), (s^1_{t-1}, c^1_{t-1}))
+(s^1_t, c^1_t) = \text{DecoderLSTM}(e(y_{t-1}), (s^1_{t-1}, c^1_{t-1})) \\
 (s^2_t, c^2_t) = \text{DecoderLSTM}(s^1_t, (s^2_{t-1}, c^2_{t-1}))
 $$
 
-Then pass the hidden state from the top layer of the RNN, $s^2_t$, through a linear layer, $f$, to make a prediction of what the next token in the target (output) sequence should be, $\hat{y}_{t+1}$.
+Then pass the hidden state from the top layer of the RNN, $s^{2}_{t}$, through a linear layer, $f$, to make a prediction of what the next token in the target (output) sequence should be, $\hat{y}_{t+1}$.
 
 $$
 \hat{y}_{t+1} = f(s^L_t)
