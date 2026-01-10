@@ -9,3 +9,7 @@ layout: default
 </div>
 
 {% include mathjax.html %}
+
+{% if page.mermaid %}
+  {% include mermaid.html %}
+{% endif %}
